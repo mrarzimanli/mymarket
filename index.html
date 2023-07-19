@@ -14,12 +14,26 @@
 <body>
     <div class="modal fade modal-verification" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div id="step-1" class="modal-content step">
                 <div class="modal-header">
-                    <span class="modal-title" id="loginModalLabel">Giriş</span>
+                    <span class="modal-title">Giriş</span>
+                    <div class="btn-wrapper">
+                        <button type="button" class="btn btn__general btn__general--contained btn__general--small btn__general--stroke btn__prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>Geri</span>
+                        </button>
+                        <button type="button" class="btn btn__general btn__general--contained btn__general--small btn__general--stroke btn__next" data-target="#step-2">
+                            <span>Növbəti</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18L15 12L9 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm" class="form-general form-verification" action="">
+                    <div id="loginForm" class="form-general form-verification" action="">
                         <div class="input-group phone-input-group">
                             <div class="dropdown__general phone__dropdown">
                                 <div class="dropdown__general__header phone__dropdown__header" data-value="050">
@@ -39,10 +53,58 @@
                                     <span data-value="099">099</span>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phoneNumber" aria-label="Phone input" maxlength="13" placeholder="_ _ _ - _ _ - _ _">
+                            <input type="text" class="form-control phoneNumber" aria-label="Phone input" maxlength="13" autofocus placeholder="_ _ _ - _ _ - _ _">
                         </div>
-                        <button id="btnLogin" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" disabled>Təsdiqlə</button>
-                    </form>
+                        <button type="button" id="btnLogin" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" data-target="#step-2" disabled>Təsdiqlə</button>
+                    </div>
+                </div>
+            </div>
+            <div id="step-2" class="modal-content step">
+                <div class="modal-header">
+                    <span class="modal-title">SMS Təsdiq</span>
+                    <p>Nömrəyə gələn kodu daxil edin</p>
+                    <div class="btn-wrapper">
+                        <button type="button" class="btn btn__general btn__general--contained btn__general--small btn__general--stroke btn__prev" data-target="#step-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>Geri</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="verificationForm" class="form-general form-verification">
+                        <div class="input-group code-input-group">
+                            <input type="text" class="form-control verifyCode" aria-label="sms code input" maxlength="7" autofocus placeholder="_ _ _ _">
+                        </div>
+                        <button type="button" id="btnVerifyLogin" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" data-target="#step-3" disabled>Təsdiqlə</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-verification" id="smsCodeModal" tabindex="-1" aria-labelledby="smsVerifyModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div id="step-1" class="modal-content step">
+                <div class="modal-header">
+                    <span class="modal-title">SMS Təsdiq</span>
+                    <p>Nömrəyə gələn kodu daxil edin</p>
+                </div>
+                <div class="modal-body">
+                    <div id="verificationForm" class="form-general form-verification">
+                        <div class="input-group code-input-group">
+                            <input type="text" class="form-control verifyCode" aria-label="sms code input" maxlength="7" autofocus placeholder="_ _ _ _">
+                        </div>
+                        <button type="button" id="btnVerifyAd" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" data-target="#step-2" disabled>Təsdiqlə</button>
+                    </div>
+                </div>
+            </div>
+            <div id="step-2" class="modal-content step">
+                <div class="modal-header">
+                    <span class="modal-title">Elanınız yoxlanışdan sonra paylaşılacaq</span>
+                </div>
+                <div class="modal-body">
+                    <a href="index.html" class="btn btn__general btn__general--contained btn__general--blue btn__general--large">Son elanlara bax</a>
                 </div>
             </div>
         </div>
