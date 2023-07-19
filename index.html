@@ -12,6 +12,41 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="loginModalLabel">Giriş</span>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" class="form-general login-form" action="">
+                        <div class="input-group phone-input-group">
+                            <div class="dropdown__general phone__dropdown">
+                                <div class="dropdown__general__header phone__dropdown__header" data-value="050">
+                                    <div class="dropdown__general__header__content phone__dropdown__header__content">050</div>
+                                    <div class="dropdown__general__header__suffix phone__dropdown__header__suffix">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#ACB1C4" stroke-linecap="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="dropdown__general__body phone__dropdown__body">
+                                    <span class="selected" data-value="050">050</span>
+                                    <span data-value="051">051</span>
+                                    <span data-value="070">070</span>
+                                    <span data-value="077">077</span>
+                                    <span data-value="055">055</span>
+                                    <span data-value="099">099</span>
+                                </div>
+                            </div>
+                            <input type="text" class="form-control phoneNumber" aria-label="Phone input" maxlength="13" placeholder="_ _ _ - _ _ - _ _">
+                        </div>
+                        <button type="submit" id="btnLogin" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" disabled>Təsdiqlə</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <div class="container">
             <div class="header__content-wrapper">
@@ -35,21 +70,21 @@
                         <div class="search__input">
                             <input type="text" placeholder="Nə axtarırsan?">
                         </div>
-                        <div class="search__dropdown">
-                            <div class="search__dropdown__header">
-                                <div class="search__dropdown__header__prefix">
+                        <div class="dropdown__general search__dropdown">
+                            <div class="dropdown__general__header search__dropdown__header">
+                                <div class="dropdown__general__header__prefix search__dropdown__header__prefix">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M18.2654 5.29652C17.2969 3.82453 15.9672 2.82315 14.2818 2.32519C13.8002 2.18291 13.2968 2.068 12.7934 2.01875C12.2188 1.95856 11.4472 2.06253 11.4472 2.06253C10.5006 2.16103 9.60315 2.42368 8.78234 2.88881C6.78504 4.01606 5.54288 5.70145 5.12701 7.96688C4.86435 9.40604 4.99568 10.8178 5.64685 12.1311C6.0682 12.9793 6.59899 13.7782 7.10789 14.5771C8.59082 16.9082 10.0847 19.2284 11.584 21.5485C11.6935 21.7127 11.8631 21.8769 12.0437 21.9535C12.3501 22.0848 12.6237 21.9316 12.8536 21.5759C14.6922 18.714 16.5363 15.8576 18.3639 12.9902C19.0151 11.9724 19.3598 10.8452 19.42 9.64134C19.5076 8.07085 19.13 6.61528 18.2654 5.29652ZM12.2133 12.4923C10.4185 12.4813 8.9465 10.9984 8.9465 9.21999C8.95198 7.42515 10.4513 5.93675 12.2352 5.94769C14.0301 5.96411 15.502 7.44157 15.4966 9.22546C15.4966 11.0148 13.9972 12.5087 12.2133 12.4923Z" fill="#ACB1C4" />
                                     </svg>
                                 </div>
-                                <div class="search__dropdown__header__content">Şəhər</div>
-                                <div class="search__dropdown__header__suffix">
+                                <div class="dropdown__general__header__content search__dropdown__header__content">Şəhər</div>
+                                <div class="dropdown__general__header__suffix search__dropdown__header__suffix">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#ACB1C4" stroke-linecap="round" />
                                     </svg>
                                 </div>
                             </div>
-                            <div class="search__dropdown__body">
+                            <div class="dropdown__general__body search__dropdown__body">
                                 <span data-value="Bakı">Bakı</span>
                                 <span data-value="Sumqayıt">Sumqayıt</span>
                                 <span data-value="Mingəçevir">Mingəçevir</span>
@@ -68,187 +103,184 @@
                     </div>
                 </div>
                 <div class="header__content-group">
-                    <button class="btn btn__new-ad">
+                    <a href="new-ad.html" class="btn btn__new-ad">
                         <div class="btn__prefix">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 1C7.77614 1 8 1.22386 8 1.5V7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H8V13.5C8 13.7761 7.77614 14 7.5 14C7.22386 14 7 13.7761 7 13.5V8H1.5C1.22386 8 1 7.77614 1 7.5C1 7.22386 1.22386 7 1.5 7H7V1.5C7 1.22386 7.22386 1 7.5 1Z" fill="#FFFFFF" />
                             </svg>
                         </div>
                         <div class="btn__content">Yeni elan</div>
-                    </button>
-                    <button class="btn btn__icon btn__icon--contained btn__icon--white btn__icon--fill btn__icon--large">
+                    </a>
+                    <button class="btn btn__icon btn__icon--contained btn__icon--white btn__icon--fill btn__icon--large" data-bs-toggle="modal" data-bs-target="#loginModal">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.4349 7.25386C13.0817 7.09934 12.8609 7.05519 12.4857 7.01104C12.287 6.98896 11.6468 6.98896 11.6468 6.98896C11.0066 7.05519 10.4327 7.25386 9.90287 7.60706C8.71082 8.40177 8.09272 9.52759 8.11479 10.9625C8.13687 12.2428 8.68875 13.3024 9.74835 14.0309C11.0729 14.936 12.4636 15.0243 13.8985 14.2737C15.3554 13.5011 16.128 11.8675 15.8631 10.2561C15.5982 8.82119 14.7815 7.80574 13.4349 7.25386Z" fill="#3584F7" />
                             <path d="M12 2C6.48124 2 2 6.48124 2 12C2 17.4967 6.45916 21.9559 11.9338 22C11.9559 22 11.9559 22 11.9779 22C11.9779 22 11.9779 22 12 22C12 22 12 22 12.0221 22C17.5408 22 22.0221 17.5188 22.0221 12C22.0221 6.48124 17.5188 2 12 2ZM18.6446 17.7174C18.6004 17.6512 18.5563 17.5629 18.4901 17.4746C17.8057 16.3267 16.8124 15.5541 15.532 15.2009C15.0684 15.0684 14.6269 15.0464 14.1854 15.3775C13.6115 15.7969 12.9272 15.9735 12.1987 15.9956C11.2494 16.0397 10.4106 15.7969 9.63797 15.245C9.43929 15.1126 9.24062 15.0464 8.99779 15.0905C8.88742 15.1126 8.77704 15.1347 8.66667 15.1567C7.16556 15.532 6.08389 16.3929 5.39956 17.7616C4.05298 16.2163 3.25828 14.2075 3.25828 12.0221C3.25828 7.18764 7.18764 3.25828 12.0221 3.25828C16.8565 3.25828 20.7638 7.16556 20.7638 12C20.7638 14.1854 19.9691 16.1722 18.6446 17.7174Z" fill="#3584F7" />
                         </svg>
                     </button>
-                    <button class="btn btn__icon btn__icon--outlined btn__icon--white btn__icon--fill btn__icon--large">
+                    <a href="fav.html" class="btn btn__icon btn__icon--outlined btn__icon--white btn__icon--fill btn__icon--large">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.6137 4.78904C12.005 4.35664 12.3481 3.86247 12.7874 3.49871C14.6268 1.9819 16.7201 1.60441 18.9507 2.42116C21.1745 3.2379 22.5129 4.89199 22.9109 7.23241C23.261 9.27085 22.6982 11.0897 21.25 12.5653C18.4017 15.4685 15.5053 18.3306 12.6295 21.2063C12.4579 21.3779 12.2932 21.5495 12.1216 21.7142C11.7236 22.0986 11.2637 22.0986 10.8725 21.7074C9.8018 20.6435 8.73797 19.5797 7.67414 18.509C5.74552 16.5804 3.82377 14.6586 1.89514 12.73C0.618549 11.4534 -0.0266129 9.90915 0.000840769 8.09034C0.0488847 5.03612 2.38931 2.44175 5.42981 2.08485C7.41333 1.85149 9.12919 2.43488 10.5774 3.80757C10.8862 4.10269 11.1745 4.41841 11.4696 4.72726C11.5177 4.74786 11.5657 4.76845 11.6137 4.78904ZM11.5382 20.0258C11.6206 19.9229 11.6755 19.8405 11.751 19.765C13.0482 18.461 14.3523 17.1638 15.6563 15.8597C17.1388 14.3772 18.635 12.9085 20.0969 11.4054C21.1676 10.3004 21.5794 8.94827 21.2912 7.43831C20.9549 5.66069 19.8979 4.439 18.1614 3.89679C16.425 3.35458 14.867 3.77325 13.5492 5.02239C13.0688 5.47538 12.6158 5.95582 12.1491 6.41567C11.7373 6.82061 11.2843 6.82061 10.8656 6.4088C10.3646 5.91464 9.8773 5.40674 9.36941 4.9263C7.68787 3.32713 5.03173 3.25163 3.27469 4.74099C1.20194 6.49803 1.0784 9.56597 3.00702 11.5015C5.77984 14.288 8.55952 17.0608 11.3392 19.8405C11.3873 19.8954 11.4353 19.9366 11.5382 20.0258Z" fill="#FFFFFF" />
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="header__catalog">
             <div class="container p-md">
-                <div class="header__catalog__content-wrapper">
-                    <div class="catalog-list catalog-list--level-1">
-                        <ul>
-                            <li class="catalog-list__item">
-                                <a href="#">
-                                    <img src="img/catalog/neqliyyat.png" alt="neqliyyat">
-                                    <span>Nəqliyyat</span>
+                <div class="catalog">
+                    <div class="catalog__col">
+                        <ul class="catalog__list">
+                            <li class="catalog__list__item">
+                                <div class="catalog__list__item__content">
+                                    <a href="#">
+                                        <img src="img/catalog/neqliyyat.png" alt="neqliyyat">
+                                        <span>Nəqliyyat</span>
+                                    </a>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
                                     </svg>
-                                </a>
-                                <div class="catalog-list catalog-list--level-2" data-catalog-level="2">
-                                    <ul>
-                                        <li data-catalog-item="0">
-                                            <a href="#">
-                                                <span>Avtomobillər</span>
+                                </div>
+                                <div class="catalog__col">
+                                    <ul class="catalog__list">
+                                        <li class="catalog__list__item">
+                                            <div class="catalog__list__item__content">
+                                                <a href="#"><span>Nəqliyyat</span></a>
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
                                                 </svg>
-                                            </a>
+                                            </div>
+                                            <div class="catalog__col">
+                                                <ul class="catalog__list">
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Acura</a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Aston Martin</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li data-catalog-item="1">
-                                            <a href="#">
-                                                <span>Ehtiyyat hissələri və aksesuarlar</span>
+                                        <li class="catalog__list__item">
+                                            <div class="catalog__list__item__content">
+                                                <a href="#"><span>Nəqliyyat</span></a>
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
                                                 </svg>
-                                            </a>
+                                            </div>
+                                            <div class="catalog__col">
+                                                <ul class="catalog__list">
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Acura</a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Aston Martin</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li data-catalog-item="2">
-                                            <a href="#">
-                                                <span>Motosiklet və mopedlər</span>
+                                        <li class="catalog__list__item">
+                                            <div class="catalog__list__item__content">
+                                                <a href="#"><span>Nəqliyyat</span></a>
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
                                                 </svg>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="catalog-list catalog-list--level-3 catalog-attributes catalog-attributes--0">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>Acura</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Aston Martin</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="catalog-list catalog-list--level-3 catalog-attributes catalog-attributes--1">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>Acura 2</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Aston Martin 2</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="catalog-list catalog-list--level-3 catalog-attributes catalog-attributes--2">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>Acura 3</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Aston Martin 3</span>
-                                            </a>
+                                            </div>
+                                            <div class="catalog__col">
+                                                <ul class="catalog__list">
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Acura</a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Aston Martin</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="catalog-list__item">
-                                <a href="#">
-                                    <img src="img/catalog/dasinmaz-emlak.png" alt="Daşınmaz">
-                                    <span>Daşınmaz Əmlak</span>
+                            <li class="catalog__list__item">
+                                <div class="catalog__list__item__content">
+                                    <a href="#">
+                                        <img src="img/catalog/neqliyyat.png" alt="neqliyyat">
+                                        <span>Nəqliyyat</span>
+                                    </a>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
                                     </svg>
-                                </a>
-                                <div class="catalog-list catalog-list--level-2" data-catalog-level="2">
-                                    <ul>
-                                        <li data-catalog-item="0">
-                                            <a href="#">
-                                                <span>Daşınmaz Əmlak 1</span>
+                                </div>
+                                <div class="catalog__col">
+                                    <ul class="catalog__list">
+                                        <li class="catalog__list__item">
+                                            <div class="catalog__list__item__content">
+                                                <a href="#"><span>Nəqliyyat</span></a>
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
                                                 </svg>
-                                            </a>
+                                            </div>
+                                            <div class="catalog__col">
+                                                <ul class="catalog__list">
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Acura</a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Aston Martin</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li data-catalog-item="1">
-                                            <a href="#">
-                                                <span>Ehtiyyat hissələri və aksesuarlar</span>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="catalog__list__item">
+                                <div class="catalog__list__item__content">
+                                    <a href="#">
+                                        <img src="img/catalog/neqliyyat.png" alt="neqliyyat">
+                                        <span>Nəqliyyat</span>
+                                    </a>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                                <div class="catalog__col">
+                                    <ul class="catalog__list">
+                                        <li class="catalog__list__item">
+                                            <div class="catalog__list__item__content">
+                                                <a href="#"><span>Nəqliyyat</span></a>
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
                                                 </svg>
-                                            </a>
-                                        </li>
-                                        <li data-catalog-item="2">
-                                            <a href="#">
-                                                <span>Motosiklet və mopedlər</span>
-                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12.5 5.75L8 10.25L3.5 5.75" stroke="#E0DEDE" stroke-linecap="round" />
-                                                </svg>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="catalog-list catalog-list--level-3 catalog-attributes catalog-attributes--0">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>Daşınmaz Əmlak 2</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Aston Martin</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="catalog-list catalog-list--level-3 catalog-attributes catalog-attributes--1">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>Acura 2</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Aston Martin 2</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="catalog-list catalog-list--level-3 catalog-attributes catalog-attributes--2">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <span>Acura 3</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Aston Martin 3</span>
-                                            </a>
+                                            </div>
+                                            <div class="catalog__col">
+                                                <ul class="catalog__list">
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Acura</a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="catalog__list__item">
+                                                        <div class="catalog__list__item__content">
+                                                            <a href="#">Aston Martin</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -300,8 +332,7 @@
                             <div class="sub-category__header"> Nəqliyyat </div>
                             <div class="sub-category__body">
                                 <div class="sub-category__item">
-                                    <a href="#">Avtomobillər</a>
-                                    <span>(1652)</span>
+                                    <a href="#">Avtomobillər <span>(1652)</span></a>
                                 </div>
                                 <div class="sub-category__item">
                                     <a href="#">Ehtiyyat hissələri və aksesuarlar</a>
@@ -365,7 +396,7 @@
                         <h1 class="section-header__title">Premium elanlar</h1>
                     </div>
                     <div class="section-header__btns">
-                        <a href="#">Bütün premium elanlar</a>
+                        <a class="btn__text btn_underline" href="#">Bütün premium elanlar</a>
                     </div>
                 </div>
                 <div class="elan__content-wrapper">
@@ -1031,7 +1062,7 @@
                         <h1 class="section-header__title">SON elanlar</h1>
                     </div>
                     <div class="section-header__btns">
-                        <a href="#">Bütün elanlar</a>
+                        <a class="btn__text btn_underline" href="#">Bütün elanlar</a>
                     </div>
                 </div>
                 <div class="elan__content-wrapper">
@@ -1584,7 +1615,7 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>

@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .enke {
+            position: relative;
+        }
+
+        .parent {
+            display: flex;
+            flex-direction: column;
+            height: 200px;
+            width: 150px;
+            background-color: red;
+            font-size: 32px;
+        }
+
+        .parent .wrapper {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .parent .parent {
+            display: none;
+            height: 200px;
+            width: 150px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 120px;
+        }
+
+        .parent .parent .parent {
+            background-color: yellow;
+        }
+
+        .child:hover>.parent {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="enke">
+        <div class="parent">
+            <div class="wrapper">
+                <div class="child">
+                    <div> Item 1 </div>
+                    <div class="parent">
+                        <div class="wrapper">
+                            <div class="child">
+                                <div> Item 1.1 </div>
+                                <div class="parent">
+                                    <div class="wrapper"> Item 1.1.1 </div>
+                                </div>
+                            </div>
+                            <div class="child">
+                                <div> Item 1.2 </div>
+                                <div class="parent">
+                                    <div class="wrapper"> Item 1.2.1 </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="child">
+                    <div> Item 2 </div>
+                    <div class="parent">
+                        <div class="wrapper">
+                            <div class="child">
+                                <div> Item 2.1 </div>
+                                <div class="parent">
+                                    <div class="wrapper"> Item 2.1.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam laboriosam molestiae, consectetur repudiandae corrupti aliquid temporibus perspiciatis suscipit similique voluptates quaerat hic aut nostrum, nesciunt laborum, fugiat cumque sed fuga? </div>
+                                </div>
+                            </div>
+                            <div class="child">
+                                <div> Item 2.2 </div>
+                                <div class="parent">
+                                    <div class="wrapper"> Item 2.2.1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam laboriosam molestiae, consectetur repudiandae corrupti aliquid temporibus perspiciatis suscipit similique voluptates quaerat hic aut nostrum, nesciunt laborum, fugiat cumque sed fuga? </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
