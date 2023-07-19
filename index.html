@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade modal-verification" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="modal-title" id="loginModalLabel">Giriş</span>
                 </div>
                 <div class="modal-body">
-                    <form id="loginForm" class="form-general login-form" action="">
+                    <form id="loginForm" class="form-general form-verification" action="">
                         <div class="input-group phone-input-group">
                             <div class="dropdown__general phone__dropdown">
                                 <div class="dropdown__general__header phone__dropdown__header" data-value="050">
@@ -41,7 +41,7 @@
                             </div>
                             <input type="text" class="form-control phoneNumber" aria-label="Phone input" maxlength="13" placeholder="_ _ _ - _ _ - _ _">
                         </div>
-                        <button type="submit" id="btnLogin" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" disabled>Təsdiqlə</button>
+                        <button id="btnLogin" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" disabled>Təsdiqlə</button>
                     </form>
                 </div>
             </div>
