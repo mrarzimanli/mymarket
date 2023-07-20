@@ -201,10 +201,6 @@ $(function () {
         verifyNextStep($(this))
     });
 
-    $('#btnVerifyLogin').click(function () {
-        alert("meyveye deyme")
-    });
-
     $('#btnVerifyAd').click(function () {
         console.log("efwjhfesj");
         verifyNextStep($(this))
@@ -279,6 +275,7 @@ $(function () {
     function clearForm(form) {
         form.find('input').val('')
         form.find('.btn__submit').prop('disabled', true)
+        form.find('.btn__next').hide(0)
     }
 
     const uniqId = (() => {

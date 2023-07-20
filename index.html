@@ -109,6 +109,55 @@
             </div>
         </div>
     </div>
+    <div class="modal fade modal-premium-ad" id="premiumAdModal" tabindex="-1" aria-labelledby="adPremiumModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="66" height="50" viewBox="0 0 66 50" fill="none">
+                        <path d="M61.8196 36.2219C42.5302 36.2219 23.3859 36.2219 4.09653 36.2219C3.80646 34.6265 3.66143 33.1762 3.37137 31.5809C2.6462 27.2299 2.06607 22.8789 1.34091 18.5279C0.90581 15.9173 0.470711 13.1617 0.0356133 10.4061C-0.109419 9.39087 0.180646 8.52067 1.05084 8.08557C2.06607 7.50544 2.93627 7.65047 3.66143 8.37564C7.72235 11.4213 11.6382 14.467 15.6991 17.3677C16.1342 17.8028 16.8594 18.0928 17.4395 18.0928C18.7448 18.2379 19.615 17.6577 20.3402 16.6425C23.0958 12.4366 25.8514 8.37564 28.6071 4.16969C29.3322 3.15446 29.9124 2.28426 30.4925 1.41407C31.7978 -0.471356 34.1183 -0.471356 35.4236 1.41407C38.7593 6.49021 42.0951 11.4213 45.4309 16.4975C46.7362 18.3829 48.4765 18.673 50.2169 17.3677C54.1328 14.467 58.1937 11.4213 62.1096 8.52067C63.5599 7.36041 65.4454 7.94054 65.7354 9.68093C65.8805 10.2611 65.7354 10.8412 65.5904 11.5664C64.7202 17.6577 63.705 23.7491 62.8348 29.8405C62.5447 31.7259 62.2547 34.0464 61.8196 36.2219Z" fill="#FCAB0E" />
+                        <path d="M4.09653 40.2828C23.3859 40.2828 42.5302 40.2828 61.8195 40.2828C61.8195 40.4278 61.8195 40.5729 61.8195 40.8629C61.8195 42.8934 61.8195 44.7788 61.8195 46.8093C61.8195 48.6947 60.5143 50 58.6288 50C41.515 49.855 24.4011 49.855 7.28725 49.855C5.40182 49.855 4.09653 48.5497 4.09653 46.6642C4.09653 44.6338 4.09653 42.4583 4.09653 40.2828Z" fill="#FCAB0E" />
+                    </svg>
+                    <span class="modal-title">Elanı Premium et</span>
+                    <p>Elanınız ana səhifədəki və axtarış nəticələrindəki VIP bölməsində təsadüfi qaydada göstəriləcək.</p>
+                </div>
+                <div class="modal-body">
+                    <form id="premiumAdForm" action="">
+                        <div class="premium-ad__feature">
+                            <span>XİDMƏTİN MÜDDƏTİ</span>
+                            <div class="form-check-wrapper">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="serviceDuration" id="serviceDuration1" checked>
+                                    <label class="form-check-label" for="serviceDuration1"> 1 gün - 5 AZN </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="serviceDuration" id="serviceDuration2" checked>
+                                    <label class="form-check-label" for="serviceDuration2"> 5 gün - 12 AZN </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="serviceDuration" id="serviceDuration3" checked>
+                                    <label class="form-check-label" for="serviceDuration3"> 10 gün - 20 AZN </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="premium-ad__feature">
+                            <span>ÖDƏNİŞ ÜSULU</span>
+                            <div class="form-check-wrapper">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentType" id="paymentType1" checked>
+                                    <label class="form-check-label" for="paymentType1"> Bank kartı </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="paymentType" id="paymentType2" checked>
+                                    <label class="form-check-label" for="paymentType2"> Portmanat </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit">Ödə</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <div class="container">
             <div class="header__content-wrapper">
@@ -1100,7 +1149,7 @@
                                 </div>
                                 <div class="elan-card__content"> Elanını <span>Premium</span> et </div>
                                 <span class="elan-card__price">1 gün - 5 azn</span>
-                                <a href="#" class="btn btn__general btn__general--contained btn__general--blue">Premium et</a>
+                                <button class="btn btn__general btn__general--contained btn__general--blue" data-bs-toggle="modal" data-bs-target="#premiumAdModal">Premium et</button>
                             </div>
                         </div>
                     </div>
