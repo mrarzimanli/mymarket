@@ -1,7 +1,19 @@
 $(window).on('load', function () { })
 
 $(function () {
-    $(document).on('click', '.dropdown__general__header', function () {
+    $(document).click(function (e) {
+        e.stopPropagation()
+
+        const dropdown = $('.dropdown__general')
+
+        if (!dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
+            dropdown.removeClass('show')
+        }
+    })
+
+    $(document).on('click', '.dropdown__general__header', function (e) {
+        e.stopPropagation()
+        $('.dropdown__general').not($(this).closest('.dropdown__general')).removeClass('show')
         $(this).closest('.dropdown__general').toggleClass('show')
     });
 
@@ -10,11 +22,31 @@ $(function () {
         const text = $(this).text()
         const dropdown = $(this).closest('.dropdown__general')
 
+        if (dropdown.hasClass('dropdown__general--clear')) {
+            dropdown.find('.dropdown__general__header__content__value').text(text)
+        } else {
+            dropdown.find('.dropdown__general__header__content').text(text)
+        }
+
         dropdown.find('.dropdown__general__header').data("value", value)
-        dropdown.find('.dropdown__general__header__content').text(text)
         dropdown.find('.dropdown__general__body span').removeClass("selected")
         dropdown.removeClass('show')
+        dropdown.addClass('active')
         $(this).addClass('selected')
+    });
+
+    $(document).on('click', '.dropdown__general__header__prefix', function (e) {
+        e.stopPropagation()
+        const dropdown = $(this).closest('.dropdown__general')
+
+        if (dropdown.hasClass('dropdown__general--clear')) {
+            const label = dropdown.find('.dropdown__general__header__content__label').text()
+            dropdown.removeClass('active')
+            dropdown.find('.dropdown__general__header__content__value').text(label)
+            dropdown.find('.dropdown__general__header').removeData("value")
+            dropdown.find('.dropdown__general__body span').removeClass("selected")
+            $(this).closest('.filter').find('.filter-input').val('')
+        }
     });
 
     $('.categories__content-header .category').click(function () {
@@ -124,7 +156,7 @@ $(function () {
     formatPhoneNumberInputs()
     formatVerifyCodeInputs()
 
-    // form general
+    // Header search
     $('#headerSearchForm .btn__submit').click(function (e) {
         e.preventDefault()
 
@@ -134,13 +166,64 @@ $(function () {
         form.find('#searchCityInput').val(city)
         form.submit()
     })
-    $(document).on('keydown', 'input[pattern]', function (e) {
-        var input = $(this);
-        var oldVal = input.val();
-        var regex = new RegExp(input.attr('pattern'), 'g');
+
+    // Category filters
+    $('#filtersForm .btn__submit').click(function (e) {
+        e.preventDefault()
+
+        let form = $(this).closest('#filtersForm')
+        let filters = form.find('.filter')
+
+        filters.each(function () {
+            const filterValue = $(this).find('.filter__dropdown__header').data('value')
+            $(this).children('.filter-input').val(filterValue)
+        })
+
+        form.submit()
+    })
+
+    $('.price-input-group input').keyup(function () {
+
+        const input = $(this)
+        const inputValue = input.val()
+        const maxLenght = input.attr('maxlength')
+
+        if (inputValue.length > maxLenght) {
+            input.val(inputValue.slice(0, maxLenght))
+            return
+        }
+
+        const inputGroup = input.closest('.price-input-group')
+        const dropdown = input.closest('.dropdown__general')
+        let minValue = inputGroup.find('.price-min').val()
+        let maxValue = inputGroup.find('.price-max').val()
+
+        dropdown.addClass('active')
+        dropdown.find('.dropdown__general__header').data("min-value", minValue)
+        dropdown.find('.dropdown__general__header').data("max-value", maxValue)
+
+        if (minValue && maxValue) {
+            dropdown.find('.dropdown__general__header__content__value').text(minValue + " - " + maxValue)
+        } else if (maxValue) {
+            dropdown.find('.dropdown__general__header__content__value').text("maks. " + maxValue)
+        } else if (minValue) {
+            dropdown.find('.dropdown__general__header__content__value').text("min. " + minValue)
+        } else {
+            const label = dropdown.find('.dropdown__general__header__content__label').text()
+            dropdown.find('.dropdown__general__header__content__value').text(label)
+            dropdown.removeClass('active')
+            dropdown.find('.dropdown__general__header').removeData("value")
+        }
+    });
+
+    // New ad
+    $(document).on('keydown', 'input[pattern]', function () {
+        const input = $(this);
+        const oldVal = input.val();
+        const regex = new RegExp(input.attr('pattern'), 'g');
 
         setTimeout(function () {
-            var newVal = input.val();
+            const newVal = input.val();
             if (!regex.test(newVal)) {
                 input.val(oldVal);
             }
@@ -188,21 +271,28 @@ $(function () {
         $(this).closest('.input-group').remove()
     });
 
-    $('#btnNewAd').click(function () {
-        // burda validasiyalar zad ola bilər
-        if (true) {
-            $('#smsCodeModal').modal('show')
-        } else {
+    $('.form-control-file').change(function () {
+        let files = $(this)[0].files;
 
+        if (files.length) {
+            let label = $('.form-control-file').prev('.file-upload-label')
+            label.empty()
+            $.map(files, function (f) {
+                return label.append(`<span>${f.name}</span>`)
+            })
         }
+    });
+
+    $('#btnNewAd').click(function () {
+        $('#smsCodeModal').modal('show')
     })
 
-    $('#btnLogin').click(function () {
+    $('#btnVerifyAd').click(function () {
         verifyNextStep($(this))
     });
 
-    $('#btnVerifyAd').click(function () {
-        console.log("efwjhfesj");
+    // Login
+    $('#btnLogin').click(function () {
         verifyNextStep($(this))
     });
 
@@ -212,6 +302,10 @@ $(function () {
 
     $('.modal-verification .btn__next').click(function () {
         verifyNextStep($(this))
+    });
+
+    $('.modal-verification').on('show.bs.modal', function () {
+        $(this).find('[autofocus]').focus();
     });
 
     function verifyNextStep(el) {
@@ -233,26 +327,10 @@ $(function () {
         }
     }
 
-    $('.modal-verification').on('show.bs.modal', function () {
-        $(this).find('[autofocus]').focus();
-    })
-
-    // tooltips
+    // Tooltips
     const tooltips = document.querySelectorAll('.tooltip-general')
     tooltips.forEach(t => {
         new bootstrap.Tooltip(t)
-    });
-
-    $('.form-control-file').change(function () {
-        let files = $(this)[0].files;
-
-        if (files.length) {
-            let label = $('.form-control-file').prev('.file-upload-label')
-            label.empty()
-            $.map(files, function (f) {
-                return label.append(`<span>${f.name}</span>`)
-            })
-        }
     });
 
     // functions
