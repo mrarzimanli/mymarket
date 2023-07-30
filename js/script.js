@@ -308,30 +308,32 @@ $(function () {
         $(this).find('[autofocus]').focus();
     });
 
-    function verifyNextStep(el) {
-        const target = el.data('target')
-        if (target) {
-            el.closest('.step').hide(0)
-            el.closest('.modal-verification').find(target).show(0)
-            el.closest('.step').find('.btn__next').show(0)
-        }
-    }
-    function verifyPrevStep(el) {
-        const target = el.data('target')
-        if (target) {
-            el.closest('.step').hide(0)
-            el.closest('.modal-verification').find(target).show(0)
-        } else {
-            el.closest('.modal-verification').modal('hide')
-            clearForm(el.closest('.modal-verification'))
-        }
-    }
-
     // Tooltips
     const tooltips = document.querySelectorAll('.tooltip-general')
     tooltips.forEach(t => {
         new bootstrap.Tooltip(t)
     });
+
+    // Swiper
+    let postThumbSwiper = new Swiper(".postThumbSwiper", {
+        spaceBetween: 15,
+        slidesPerView: 5,
+        lazy: true,
+        freeMode: true,
+        keyboardControl: true,
+        watchSlidesProgress: true,
+        direction: 'vertical'
+    });
+
+
+    let postSwiper = new Swiper(".postSwiper", {
+        spaceBetween: 15,
+        lazy: true,
+        thumbs: {
+            swiper: postThumbSwiper,
+        },
+    });
+
 
     // functions
     function formatPhoneNumberInputs() {
@@ -348,6 +350,26 @@ $(function () {
             verifyCodeInput.addEventListener('keydown', enforceFormat);
             verifyCodeInput.addEventListener('keyup', formatToVerifyCode);
         })
+    }
+
+    function verifyNextStep(el) {
+        const target = el.data('target')
+        if (target) {
+            el.closest('.step').hide(0)
+            el.closest('.modal-verification').find(target).show(0)
+            el.closest('.step').find('.btn__next').show(0)
+        }
+    }
+
+    function verifyPrevStep(el) {
+        const target = el.data('target')
+        if (target) {
+            el.closest('.step').hide(0)
+            el.closest('.modal-verification').find(target).show(0)
+        } else {
+            el.closest('.modal-verification').modal('hide')
+            clearForm(el.closest('.modal-verification'))
+        }
     }
 
     function clearForm(form) {
