@@ -18,35 +18,12 @@ $(function () {
     });
 
     $(document).on('click', '.dropdown__general__body span', function () {
-        const value = $(this).data("value")
-        const text = $(this).text()
-        const dropdown = $(this).closest('.dropdown__general')
-
-        if (dropdown.hasClass('dropdown__general--clear')) {
-            dropdown.find('.dropdown__general__header__content__value').text(text)
-        } else {
-            dropdown.find('.dropdown__general__header__content').text(text)
-        }
-
-        dropdown.find('.dropdown__general__header').data("value", value)
-        dropdown.find('.dropdown__general__body span').removeClass("selected")
-        dropdown.removeClass('show')
-        dropdown.addClass('active')
-        $(this).addClass('selected')
+        selectDropdownValue($(this))
     });
 
     $(document).on('click', '.dropdown__general__header__prefix', function (e) {
         e.stopPropagation()
-        const dropdown = $(this).closest('.dropdown__general')
-
-        if (dropdown.hasClass('dropdown__general--clear')) {
-            const label = dropdown.find('.dropdown__general__header__content__label').text()
-            dropdown.removeClass('active')
-            dropdown.find('.dropdown__general__header__content__value').text(label)
-            dropdown.find('.dropdown__general__header').removeData("value")
-            dropdown.find('.dropdown__general__body span').removeClass("selected")
-            $(this).closest('.filter').find('.filter-input').val('')
-        }
+        clearDropdownValue($(this))
     });
 
     $('.categories__content-header .category').click(function () {
@@ -60,13 +37,17 @@ $(function () {
         }
     });
 
+    $('.dropdown__general__body span.selected').each(function () {
+        selectDropdownValue($(this))
+    })
+
     $('#btn-toggle-catalog').click(function () {
         $(this).find('svg').toggle()
         $('.header__catalog').toggleClass('show')
     });
 
     $('.btn__fav').click(function () {
-        $(this).find('svg').toggle()
+        $(this).toggleClass('is-fav')
     });
 
     // Tel input
@@ -283,7 +264,16 @@ $(function () {
         }
     });
 
+    $('#discountSwitch').change(function () {
+        $(this).closest('#newAdForm').find('.row.discount').toggleClass('d-none')
+    })
+
     $('#btnNewAd').click(function () {
+        $(this).closest('#newAdForm').find('.phoneNumber').each(function () {
+            let tel = $(this).val()
+            let prefix = $(this).prev('.phone__dropdown').find('.phone__dropdown__header').data('value');
+            $(this).val((prefix + tel).replace(/\D/g, ''));
+        })
         $('#smsCodeModal').modal('show')
     })
 
@@ -325,7 +315,6 @@ $(function () {
         direction: 'vertical'
     });
 
-
     let postSwiper = new Swiper(".postSwiper", {
         spaceBetween: 15,
         lazy: true,
@@ -334,8 +323,38 @@ $(function () {
         },
     });
 
+    // Functions
+    function selectDropdownValue(el) {
+        const value = el.data("value")
+        const text = el.text()
+        const dropdown = el.closest('.dropdown__general')
 
-    // functions
+        if (dropdown.hasClass('dropdown__general--clear')) {
+            dropdown.find('.dropdown__general__header__content__value').text(text)
+        } else {
+            dropdown.find('.dropdown__general__header__content').text(text)
+        }
+
+        dropdown.find('.dropdown__general__header').data("value", value)
+        dropdown.find('.dropdown__general__body span').removeClass("selected")
+        dropdown.removeClass('show')
+        dropdown.addClass('active')
+        el.addClass('selected')
+    }
+
+    function clearDropdownValue(el) {
+        const dropdown = el.closest('.dropdown__general')
+
+        if (dropdown.hasClass('dropdown__general--clear')) {
+            const label = dropdown.find('.dropdown__general__header__content__label').text()
+            dropdown.removeClass('active')
+            dropdown.find('.dropdown__general__header__content__value').text(label)
+            dropdown.find('.dropdown__general__header').removeData("value")
+            dropdown.find('.dropdown__general__body span').removeClass("selected")
+            el.closest('.filter').find('.filter-input').val('')
+        }
+    }
+
     function formatPhoneNumberInputs() {
         const phoneInputs = Array.from(document.querySelectorAll('.phoneNumber'));
         phoneInputs && phoneInputs.forEach(phoneInput => {

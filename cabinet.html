@@ -402,61 +402,53 @@
             </div>
         </div>
     </header>
-    <main class="static-main">
-        <section class="static-page p-md">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="static-page__sidebar">
-                            <ul class="static-page__nav-list">
-                                <li>
-                                    <a class="active" href="about.html">Haqqımızda</a>
-                                </li>
-                                <li>
-                                    <a href="about.html">Qaydalar</a>
-                                </li>
-                                <li>
-                                    <a href="about.html">İstifadəçi şərtləri</a>
-                                </li>
-                                <li>
-                                    <a href="about.html">Məxfilik siyafəti</a>
-                                </li>
-                                <li>
-                                    <a href="about.html">FAQ</a>
-                                </li>
-                            </ul>
+    <main class="cabinet-main">
+        <section class="cabinet p-md pb-0">
+            <div class="cabinet__header">
+                <div class="container">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="btn__tab active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 12H4.6C4.03995 12 3.75992 12 3.54601 12.109C3.35785 12.2049 3.20487 12.3578 3.10899 12.546C3 12.7599 3 13.0399 3 13.6V19.4C3 19.9601 3 20.2401 3.10899 20.454C3.20487 20.6422 3.35785 20.7951 3.54601 20.891C3.75992 21 4.03995 21 4.6 21H9M9 21H15M9 21L9 8.6C9 8.03995 9 7.75992 9.10899 7.54601C9.20487 7.35785 9.35785 7.20487 9.54601 7.10899C9.75992 7 10.0399 7 10.6 7H13.4C13.9601 7 14.2401 7 14.454 7.10899C14.6422 7.20487 14.7951 7.35785 14.891 7.54601C15 7.75992 15 8.03995 15 8.6V21M15 21H19.4C19.9601 21 20.2401 21 20.454 20.891C20.6422 20.7951 20.7951 20.6422 20.891 20.454C21 20.2401 21 19.9601 21 19.4V4.6C21 4.03995 21 3.75992 20.891 3.54601C20.7951 3.35785 20.6422 3.20487 20.454 3.10899C20.2401 3 19.9601 3 19.4 3H16.6C16.0399 3 15.7599 3 15.546 3.10899C15.3578 3.20487 15.2049 3.35785 15.109 3.54601C15 3.75992 15 4.03995 15 4.6V8" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Şəxsi kabinet</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="btn__tab" id="pills-ads-tab" data-bs-toggle="pill" data-bs-target="#pills-ads" type="button" role="tab" aria-controls="pills-ads" aria-selected="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M2 12.0001L11.6422 16.8212C11.7734 16.8868 11.839 16.9196 11.9078 16.9325C11.9687 16.9439 12.0313 16.9439 12.0922 16.9325C12.161 16.9196 12.2266 16.8868 12.3578 16.8212L22 12.0001M2 17.0001L11.6422 21.8212C11.7734 21.8868 11.839 21.9196 11.9078 21.9325C11.9687 21.9439 12.0313 21.9439 12.0922 21.9325C12.161 21.9196 12.2266 21.8868 12.3578 21.8212L22 17.0001M2 7.00006L11.6422 2.17895C11.7734 2.11336 11.839 2.08056 11.9078 2.06766C11.9687 2.05622 12.0313 2.05622 12.0922 2.06766C12.161 2.08056 12.2266 2.11336 12.3578 2.17895L22 7.00006L12.3578 11.8212C12.2266 11.8868 12.161 11.9196 12.0922 11.9325C12.0313 11.9439 11.9687 11.9439 11.9078 11.9325C11.839 11.9196 11.7734 11.8868 11.6422 11.8212L2 7.00006Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Mənim elanlarım</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="btn__tab" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 21C20 19.6044 20 18.9067 19.8278 18.3389C19.44 17.0605 18.4395 16.06 17.1611 15.6722C16.5933 15.5 15.8956 15.5 14.5 15.5H9.5C8.10444 15.5 7.40665 15.5 6.83886 15.6722C5.56045 16.06 4.56004 17.0605 4.17224 18.3389C4 18.9067 4 19.6044 4 21M16.5 7.5C16.5 9.98528 14.4853 12 12 12C9.51472 12 7.5 9.98528 7.5 7.5C7.5 5.01472 9.51472 3 12 3C14.4853 3 16.5 5.01472 16.5 7.5Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Profil</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cabinet__body p-md">
+                <div class="container">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div class="pills-home__cards">
+                                <div class="pills-home__card">
+                                    <div class="pills-home__card__header"> Şəxsi hesab </div>
+                                    <div class="pills-home__card__body"> Şəxsi hesab </div>
+                                </div>
+                            </div>
+                            <div class="pills-home__logs">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="static-page__content content">
-                            <h1>What is Lorem Ipsum?</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, illum cum provident excepturi eveniet facere perspiciatis nulla corporis nihil dolor voluptates deserunt sequi sint omnis explicabo ab, non exercitationem voluptatum.</p>
-                            <p>Lorem ipsum dolor sit amet <a href="#">consectetur adipisicing elit.</a> Aut, illum cum provident excepturi eveniet facere perspiciatis nulla corporis nihil dolor voluptates deserunt sequi sint omnis explicabo ab, non exercitationem voluptatum.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, illum cum provident excepturi eveniet facere perspiciatis nulla corporis nihil dolor voluptates deserunt sequi sint omnis explicabo ab, non exercitationem voluptatum.</p>
-                            <h2>What is Lorem Ipsum?</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, illum cum provident excepturi eveniet facere perspiciatis nulla corporis nihil dolor voluptates deserunt sequi sint omnis explicabo ab, non exercitationem voluptatum.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, illum cum provident excepturi eveniet facere perspiciatis nulla corporis nihil dolor voluptates deserunt sequi sint omnis explicabo ab, non exercitationem voluptatum.</p>
-                            <h3>What is Lorem Ipsum?</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, illum cum provident excepturi eveniet facere perspiciatis nulla corporis nihil dolor voluptates deserunt sequi sint omnis explicabo ab, non exercitationem voluptatum.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, illum cum provident excepturi eveniet facere perspiciatis nulla corporis nihil dolor voluptates deserunt sequi sint omnis explicabo ab, non exercitationem voluptatum.</p>
-                            <h4>What is Lorem Ipsum?</h4>
-                            <ul>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                            </ul>
-                            <h5>What is Lorem Ipsum?</h5>
-                            <ol>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                            </ol>
-                            <h6>What is Lorem Ipsum?</h6>
-                            <img src="https://picsum.photos/600/600" alt="">
-                            <img src="https://picsum.photos/1200/600" alt="">
-                        </div>
+                        <div class="tab-pane fade" id="pills-ads" role="tabpanel" aria-labelledby="pills-ads-tab">2</div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">3</div>
                     </div>
                 </div>
             </div>
