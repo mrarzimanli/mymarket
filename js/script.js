@@ -27,13 +27,15 @@ $(function () {
     });
 
     $('.categories__content-header .category').click(function () {
-        if (!$(this).hasClass('show')) {
-            $('.categories__content-header .category').removeClass('show')
-            $(this).addClass('show')
-            $('.categories__content-body').addClass('show')
-        } else {
-            $('.categories__content-body').removeClass('show')
-            $(this).removeClass('show')
+        if (!$(this).hasClass('category--discount')) {
+            if (!$(this).hasClass('show')) {
+                $('.categories__content-header .category').removeClass('show')
+                $(this).addClass('show')
+                $('.categories__content-body').addClass('show')
+            } else {
+                $('.categories__content-body').removeClass('show')
+                $(this).removeClass('show')
+            }
         }
     });
 
@@ -298,6 +300,16 @@ $(function () {
         $(this).find('[autofocus]').focus();
     });
 
+    $('#btnVerifyLogin').click(function () {
+        let now = new Date()
+        let endDate = new Date(now.getTime() + 0.1 * 60000);
+        let form = $(this).closest('#verificationForm')
+        let container = form.find('.repeat-verify')
+
+        container.removeClass('d-none')
+        countdown(endDate, container)
+    });
+
     // Increase balance
     $('.payment-option').click(function () {
         $('.payment-option').not($(this)).removeClass('selected')
@@ -409,6 +421,39 @@ $(function () {
         form.find('input').val('')
         form.find('.btn__submit').prop('disabled', true)
         form.find('.btn__next').hide(0)
+    }
+
+    function countdown(endDate, container) {
+        const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
+
+        let countDown = new Date(endDate).getTime()
+
+        let x = setInterval(function () {
+            let now = new Date().getTime(),
+                distance = countDown - now;
+
+            if (distance > 1) {
+                container.find("#days").text(Math.floor(distance / day))
+                container.find("#hours").text(Math.floor((distance % day) / hour))
+                container.find("#minutes").text(("0" + (Math.floor((distance % hour) / minute))).slice(-2))
+                container.find("#seconds").text(("0" + (Math.floor((distance % minute) / second))).slice(-2))
+            } else {
+                container.find('#btnRepeatVerify').prop('disabled', false)
+                container.find("#days").text("00")
+                container.find("#hours").text("00")
+                container.find("#minutes").text("00")
+                container.find("#seconds").text("00")
+                container.find(".countdown").remove()
+                clearInterval(x)
+            }
+        }, 0);
+    }
+
+    function formatTwoDigit(num) {
+        return num > 9 ?? "0" + num
     }
 
     const uniqId = (() => {

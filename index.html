@@ -79,6 +79,12 @@
                             <input type="text" class="form-control verifyCode" aria-label="sms code input" maxlength="7" autofocus placeholder="_ _ _ _">
                         </div>
                         <button type="button" id="btnVerifyLogin" class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit" data-target="#step-3" disabled>Təsdiqlə</button>
+                        <div class="repeat-verify d-none">
+                            <button class="btn__text" id="btnRepeatVerify" disabled>SMS-kod yenidən göndərilsin</button>
+                            <div class="countdown">
+                                <span id="minutes">00</span>: <span id="seconds">00</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -223,11 +229,30 @@
                         </div>
                         <div class="btn__content">Yeni elan</div>
                     </a>
-                    <button class="btn btn__icon btn__icon--contained btn__icon--white btn__icon--stroke btn__icon--large" data-bs-toggle="modal" data-bs-target="#loginModal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 21C20 19.6044 20 18.9067 19.8278 18.3389C19.44 17.0605 18.4395 16.06 17.1611 15.6722C16.5933 15.5 15.8956 15.5 14.5 15.5H9.5C8.10444 15.5 7.40665 15.5 6.83886 15.6722C5.56045 16.06 4.56004 17.0605 4.17224 18.3389C4 18.9067 4 19.6044 4 21M16.5 7.5C16.5 9.98528 14.4853 12 12 12C9.51472 12 7.5 9.98528 7.5 7.5C7.5 5.01472 9.51472 3 12 3C14.4853 3 16.5 5.01472 16.5 7.5Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
+                    <div class="dropdown__general login__dropdown">
+                        <div class="dropdown__general__header login__dropdown__header">
+                            <div class="dropdown__general__header__content login__dropdown__header__content">
+                                <button class="btn btn__icon btn__icon--contained btn__icon--white btn__icon--stroke btn__icon--large" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 21C20 19.6044 20 18.9067 19.8278 18.3389C19.44 17.0605 18.4395 16.06 17.1611 15.6722C16.5933 15.5 15.8956 15.5 14.5 15.5H9.5C8.10444 15.5 7.40665 15.5 6.83886 15.6722C5.56045 16.06 4.56004 17.0605 4.17224 18.3389C4 18.9067 4 19.6044 4 21M16.5 7.5C16.5 9.98528 14.4853 12 12 12C9.51472 12 7.5 9.98528 7.5 7.5C7.5 5.01472 9.51472 3 12 3C14.4853 3 16.5 5.01472 16.5 7.5Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="dropdown__general__body login__dropdown__body">
+                            <ul>
+                                <li>
+                                    <a href="cabinet.html">Şəxsi kabinet</a>
+                                </li>
+                                <li>
+                                    <a href="fav.html">Seçilmişlər</a>
+                                </li>
+                                <li>
+                                    <a href="#">Çıxış</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <a href="fav.html" class="btn btn__icon btn__icon--outlined btn__icon--white btn__icon--stroke btn__icon--large">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -427,7 +452,7 @@
                             </div>
                             <div class="category__content"> Nəqliyyat </div>
                         </div>
-                        <div class="category">
+                        <a href="category.html" class="category category--discount">
                             <div class="category__icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.7809 2C12.3091 2.08314 12.7052 2.38148 13.0672 2.75317C13.3508 3.04661 13.6589 3.3205 13.9475 3.60905C14.1382 3.79979 14.3583 3.86337 14.6224 3.81935C15.1164 3.7411 15.6103 3.66774 16.1092 3.60416C17.1949 3.47211 17.9823 4.05899 18.1731 5.14473C18.2611 5.62403 18.3442 6.10332 18.4176 6.5875C18.4616 6.8516 18.5888 7.03744 18.8333 7.15971C19.2833 7.38958 19.7332 7.62922 20.1783 7.86887C21.1075 8.37261 21.4156 9.32141 20.9608 10.28C20.7456 10.7299 20.5304 11.1848 20.3005 11.6298C20.1685 11.8841 20.1734 12.1189 20.3054 12.3732C20.5255 12.7987 20.7309 13.234 20.9412 13.6693C21.4303 14.6719 21.1173 15.6256 20.1391 16.1489C19.7088 16.3787 19.2833 16.6135 18.848 16.8336C18.5888 16.9607 18.4616 17.1563 18.4176 17.44C18.3393 17.9389 18.2562 18.4426 18.1535 18.9366C17.9383 19.993 17.1069 20.5554 16.0456 20.3891C15.5516 20.3109 15.0528 20.2473 14.5588 20.1739C14.329 20.1397 14.1382 20.2082 13.9719 20.3696C13.6002 20.7364 13.2285 21.0983 12.852 21.4553C12.089 22.184 11.0815 22.1791 10.3186 21.4553C9.95665 21.1081 9.58985 20.7657 9.23772 20.4087C9.0372 20.2033 8.81222 20.1348 8.53345 20.1837C8.03949 20.2668 7.54553 20.3402 7.04667 20.394C5.95115 20.5212 5.16864 19.9147 4.98768 18.8241C4.90943 18.3497 4.82139 17.8753 4.74314 17.4009C4.69913 17.1417 4.57197 16.9656 4.33721 16.8433C3.89216 16.6184 3.45199 16.3787 3.01183 16.144C2.05325 15.6207 1.74513 14.6621 2.21953 13.6839C2.42983 13.2487 2.63035 12.8134 2.85532 12.3879C2.99226 12.1238 2.99716 11.8793 2.86022 11.6103C2.63035 11.1701 2.42005 10.725 2.20975 10.28C1.75491 9.3263 2.06303 8.37261 2.99226 7.86887C3.43243 7.62922 3.87259 7.38958 4.31765 7.16949C4.58175 7.03744 4.7138 6.83692 4.75782 6.54837C4.83607 6.05441 4.91921 5.56045 5.01702 5.07137C5.22732 4.0052 6.06364 3.44276 7.1396 3.61394C7.62867 3.69219 8.11774 3.75577 8.60681 3.82913C8.83668 3.86337 9.02742 3.79979 9.1937 3.63839C9.49692 3.34006 9.80993 3.0564 10.1034 2.75317C10.4604 2.38148 10.8614 2.08314 11.3896 2C11.5168 2 11.6488 2 11.7809 2ZM16.3684 19.2594C16.7205 19.2642 16.9504 19.0784 17.0091 18.7605C17.0922 18.3203 17.19 17.8802 17.2389 17.4351C17.3319 16.6282 17.7182 16.0559 18.4665 15.7185C18.8627 15.5375 19.2392 15.3174 19.6207 15.112C20.0169 14.8968 20.1098 14.6083 19.9142 14.2024C19.6941 13.7475 19.474 13.2878 19.2441 12.8378C18.9605 12.2754 18.9654 11.7179 19.249 11.1554C19.4642 10.725 19.6745 10.2947 19.8848 9.85939C20.1245 9.37032 20.0413 9.10622 19.562 8.85679C19.1316 8.62693 18.7013 8.39706 18.2709 8.17209C17.7036 7.87865 17.3808 7.41403 17.283 6.78313C17.1998 6.27449 17.1118 5.77075 17.014 5.267C16.9406 4.87575 16.6765 4.6899 16.2852 4.7437C15.7913 4.81706 15.2924 4.88064 14.7985 4.95889C14.1382 5.06159 13.5807 4.88553 13.1112 4.40624C12.7688 4.05899 12.4118 3.72643 12.0597 3.38897C11.732 3.07596 11.4288 3.07107 11.106 3.38407C10.7343 3.7411 10.3675 4.09812 9.99578 4.45514C9.58496 4.85129 9.09588 5.04203 8.52367 4.96867C7.99058 4.9002 7.4526 4.82684 6.91951 4.7437C6.47935 4.68012 6.22503 4.85129 6.137 5.29146C6.05875 5.70717 5.96582 6.12288 5.92181 6.53859C5.83377 7.35534 5.43763 7.92756 4.68445 8.26991C4.28831 8.45086 3.91172 8.67095 3.53024 8.87636C3.14388 9.08177 3.05095 9.37521 3.24169 9.77136C3.46177 10.2262 3.68186 10.6859 3.91172 11.1359C4.20027 11.7032 4.19538 12.2705 3.91172 12.8378C3.68675 13.278 3.47645 13.7231 3.26125 14.1681C3.04606 14.6083 3.13899 14.8822 3.57426 15.112C4.00953 15.3419 4.44481 15.5815 4.88497 15.8065C5.45719 16.1048 5.78487 16.5695 5.88757 17.2053C5.96582 17.7041 6.05875 18.203 6.15167 18.7018C6.22992 19.1175 6.49402 19.2936 6.91462 19.23C7.40859 19.1567 7.90744 19.0882 8.4014 19.0148C9.05187 18.917 9.60452 19.1126 10.0691 19.5773C10.4164 19.9245 10.7685 20.2571 11.1206 20.5945C11.4385 20.8978 11.7467 20.9026 12.0597 20.5945C12.4118 20.2571 12.7688 19.9245 13.1112 19.5773C13.6051 19.0784 14.1871 18.9072 14.8718 19.0246C15.3756 19.1322 15.894 19.1909 16.3684 19.2594Z" fill="#ACB1C4" />
@@ -437,108 +462,116 @@
                                 </svg>
                             </div>
                             <div class="category__content"> Endirim </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="categories__content-body">
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Nəqliyyat </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="category.html">Avtomobillər <span>(1652)</span></a>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Ehtiyyat hissələri və aksesuarlar</a>
-                                    <span>(1652)</span>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Motosiklet və mopedlər</a>
-                                    <span>(1652)</span>
-                                </div>
+                        <div class="sub-categories__all-ads">
+                            <div class="sub-category__item">
+                                <a href="#">Bütün elanlar</a>
+                                <span>(1652)</span>
                             </div>
                         </div>
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Daşınmaz əmlak </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="#">Mənzillər</a>
-                                    <span>(1652)</span>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Villalar, bağ evləri</a>
-                                    <span>(1652)</span>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Torpaq</a>
-                                    <span>(1652)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Elektronika </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="#">Telefonlar</a>
-                                    <span>(1652)</span>
+                        <div class="sub-categories__wrapper">
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Nəqliyyat <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="category.html">Avtomobillər <span>(1652)</span></a>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Ehtiyyat hissələri və aksesuarlar</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Motosiklet və mopedlər</a>
+                                        <span>(1652)</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Mebel </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="#">Smart saatlar və qolbaqlar</a>
-                                    <span>(1652)</span>
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Daşınmaz əmlak <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="#">Mənzillər</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Villalar, bağ evləri</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Torpaq</a>
+                                        <span>(1652)</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Nəqliyyat </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="#">Avtomobillər <span>(1652)</span></a>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Ehtiyyat hissələri və aksesuarlar</a>
-                                    <span>(1652)</span>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Motosiklet və mopedlər</a>
-                                    <span>(1652)</span>
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Elektronika <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="#">Telefonlar</a>
+                                        <span>(1652)</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Daşınmaz əmlak </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="#">Mənzillər</a>
-                                    <span>(1652)</span>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Villalar, bağ evləri</a>
-                                    <span>(1652)</span>
-                                </div>
-                                <div class="sub-category__item">
-                                    <a href="#">Torpaq</a>
-                                    <span>(1652)</span>
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Mebel <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="#">Smart saatlar və qolbaqlar</a>
+                                        <span>(1652)</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Elektronika </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="#">Telefonlar</a>
-                                    <span>(1652)</span>
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Nəqliyyat <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="#">Avtomobillər <span>(1652)</span></a>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Ehtiyyat hissələri və aksesuarlar</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Motosiklet və mopedlər</a>
+                                        <span>(1652)</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sub-category">
-                            <div class="sub-category__header"> Mebel </div>
-                            <div class="sub-category__body">
-                                <div class="sub-category__item">
-                                    <a href="#">Smart saatlar və qolbaqlar</a>
-                                    <span>(1652)</span>
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Daşınmaz əmlak <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="#">Mənzillər</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Villalar, bağ evləri</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                    <div class="sub-category__item">
+                                        <a href="#">Torpaq</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Elektronika <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="#">Telefonlar</a>
+                                        <span>(1652)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub-category">
+                                <a href="#" class="sub-category__header"> Mebel <span>(123)</span> </a>
+                                <div class="sub-category__body">
+                                    <div class="sub-category__item">
+                                        <a href="#">Smart saatlar və qolbaqlar</a>
+                                        <span>(1652)</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
