@@ -272,9 +272,32 @@ html {
     border: none;
 }
 
+.modal-body {
+    padding: 15px 50px 50px;
+}
+
+.modal-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 32px;
+}
+
 .modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     justify-content: center;
+    padding: 50px 50px 15px;
+    gap: 12px;
     border-bottom: none;
+}
+
+.modal-title {
+    font-weight: var(--fw-semi-bold);
+    font-size: var(--fs-b6);
+    line-height: var(--lh-b6);
 }
 
 /* buttons */
@@ -347,6 +370,8 @@ html {
     color: var(--blue-secondary);
     font-weight: var(--fw-medium);
     transition: all 250ms ease-in-out;
+    font-size: var(--fs-b2) !important;
+    line-height: var(--lh-b2);
 }
 
 .btn__underline {
@@ -549,6 +574,19 @@ html {
 .btn__general--white.btn__general--contained {
     background-color: var(--white);
     color: var(--blue-primary);
+}
+
+.btn__general--white.btn__general--outlined {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.btn__general--white.btn__general--outlined.btn__general--fill svg path {
+    fill: var(--white);
+}
+
+.btn__general--white.btn__general--outlined.btn__general--stroke svg path {
+    stroke: var(--white);
 }
 
 /* gutters */
@@ -774,11 +812,6 @@ html {
 }
 
 .modal-premium-ad .modal-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
     padding: 36px 36px 12px;
 }
 
@@ -786,12 +819,6 @@ html {
     width: 48px;
     height: 48px;
     object-fit: contain;
-}
-
-.modal-premium-ad .modal-header .modal-title {
-    font-weight: var(--fw-semi-bold);
-    font-size: var(--fs-h1);
-    line-height: var(--lh-h1);
 }
 
 .modal-premium-ad .modal-header p {
@@ -802,19 +829,12 @@ html {
     padding: 12px 36px 36px;
 }
 
-#premiumAdForm {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 0 32px;
-}
-
-.premium-ad__feature {
+.modal-body__option {
     display: flex;
     flex-direction: column;
 }
 
-.premium-ad__feature>span {
+.modal-body__option>span {
     font-size: var(--fs-b4);
     line-height: var(--lh-b4);
     color: var(--gray-600);
@@ -824,27 +844,67 @@ html {
     text-align: center;
 }
 
-.premium-ad__feature .form-check-wrapper {
+.modal-body__option .form-check-wrapper {
     flex-direction: column;
     gap: 16px;
 }
 
-.premium-ad__feature .form-check-wrapper .form-check {
+.modal-body__option .form-check-wrapper .form-check {
     gap: 12px;
 }
 
-.premium-ad__feature .form-check-wrapper .form-check-input {
+.modal-body__option .form-check-wrapper .form-check-input {
     width: 24px;
     height: 24px;
 }
 
-.premium-ad__feature .form-check-wrapper .form-check-label {
+.modal-body__option .form-check-wrapper .form-check-label {
     font-size: var(--fs-b3);
     line-height: var(--lh-b3);
     flex-grow: 1;
 }
 
-/* modal verification  */
+/* Modal increase balance */
+.payment-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.payment-option {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 50px;
+    min-width: 90px;
+    border-radius: 5px;
+    color: var(--gray-600);
+    font-size: var(--fs-b3);
+    line-height: var(--lh-b3);
+    flex-shrink: 0;
+    user-select: none;
+    transition: all 250ms ease-in-out;
+}
+
+.payment-option:not(.payment-option--custom) {
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid var(--gray-400);
+    align-items: center;
+    flex: 1;
+}
+
+.payment-option:not(.payment-option--custom).selected {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+}
+
+.payment-option--custom.selected input {
+    border-color: var(--blue-primary);
+}
+
+/* Modal verification  */
 .modal-verification .modal-dialog {
     max-width: 550px;
 }
@@ -855,25 +915,12 @@ html {
 }
 
 .modal-verification .modal-header {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
     padding: 50px 50px 15px;
-}
-
-.modal-verification .modal-header .modal-title {
-    font-weight: var(--fw-semi-bold);
-    font-size: var(--fs-b6);
-    line-height: var(--lh-b6);
 }
 
 .modal-verification .modal-body {
     display: flex;
     justify-content: center;
-    padding: 15px 50px 50px;
 }
 
 .modal-verification .btn-wrapper {
@@ -1227,6 +1274,7 @@ html {
 .elan-card__wrapper {
     display: flex;
     position: relative;
+    flex-grow: 1;
 }
 
 .elan-card {
@@ -1326,8 +1374,11 @@ html {
     border-radius: 0 0 10px 10px;
     border-right: 1px solid var(--gray-400);
     border-bottom: 1px solid var(--gray-400);
-    border-left: 1px solid var(--gray-400);
+    border-left: 1px solid var(--gray-400)
+}
 
+.elan-card__body .btn__general {
+    margin-top: 16px;
 }
 
 .elan-card__price {
@@ -1353,7 +1404,6 @@ html {
     line-height: var(--lh-b3);
     font-weight: var(--fw-medium);
     margin-bottom: 16px;
-    flex-grow: 1;
 }
 
 .elan-card__date {
@@ -2041,13 +2091,13 @@ a.store__contact:hover {
     padding: 8px 12px;
 }
 
-.price-input-group input::-webkit-outer-spin-button,
-.price-input-group input::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.price-input-group input[type=number] {
+input[type=number] {
     -moz-appearance: textfield;
 }
 
@@ -2411,11 +2461,17 @@ a.post__store__contact:hover {
     background: var(--gray-200);
 }
 
+.nav-pills .nav-item {
+    display: flex;
+    flex: 1;
+}
+
 .btn__tab {
     padding: 12px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-grow: 1;
     gap: 10px;
     font-size: var(--fs-b3);
     line-height: var(--lh-b3);
@@ -2425,6 +2481,17 @@ a.post__store__contact:hover {
     height: 55px;
     transition: all 250ms ease-in-out;
     border: none;
+    flex-shrink: 0;
+}
+
+.btn__tab.secondary {
+    background: none;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--gray-600);
+}
+
+.btn__tab.secondary span {
+    color: var(--gray-600);
 }
 
 .btn__tab:hover {
@@ -2434,6 +2501,12 @@ a.post__store__contact:hover {
 .btn__tab.active {
     background: var(--blue-primary);
     color: var(--white);
+}
+
+.btn__tab.secondary.active {
+    background: none;
+    color: var(--blue-primary);
+    border-color: var(--blue-primary);
 }
 
 .btn__tab.active svg path {
@@ -2449,4 +2522,77 @@ a.post__store__contact:hover {
 
 .btn__tab svg path {
     stroke: var(--blue-primary);
+}
+
+.pills-home__card {
+    flex-grow: 1;
+    border-radius: 10px;
+    background: var(--gray-600);
+    padding: 20px 32px;
+    color: var(--white);
+}
+
+.pills-home__card.primary {
+    background: #00579F;
+}
+
+.pills-home__card.secondary {
+    background: #023572;
+}
+
+.pills-home__card__header {
+    font-size: var(--fs-b3);
+    line-height: var(--lh-b3);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--white);
+    margin-bottom: 24px;
+}
+
+.pills-home__card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pills-home__card__content {
+    font-size: var(--fs-b6);
+    line-height: var(--lh-b6);
+    font-weight: var(--fw-medium);
+}
+
+.pills-home__card__body .btn__general {
+    justify-content: space-between;
+}
+
+.pills-home__logs {
+    margin-top: 36px;
+}
+
+.pills-home__logs__header {
+    display: flex;
+    font-size: var(--fs-b5);
+    line-height: var(--lh-b5);
+    font-weight: var(--fw-medium);
+    columns: var(--gray-800);
+    border-bottom: 1px solid var(--gray-400);
+}
+
+.pills-home__logs__header>span {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--blue-primary);
+}
+
+.pills-home__logs__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.pills-home__logs__empty span {
+    font-size: var(--fs-b6);
+    line-height: var(--lh-b6);
+    font-weight: var(--fw-medium);
 }

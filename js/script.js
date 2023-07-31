@@ -298,6 +298,20 @@ $(function () {
         $(this).find('[autofocus]').focus();
     });
 
+    // Increase balance
+    $('.payment-option').click(function () {
+        $('.payment-option').not($(this)).removeClass('selected')
+        $(this).addClass('selected')
+
+        if (!$(this).hasClass('payment-option--custom')) {
+            const payAmount = $(this).data('value')
+            const customPayInput = $(this).closest('.payment-options').find('.payment-option--custom input')
+            customPayInput.val(payAmount)
+            customPayInput.text(payAmount)
+        }
+
+    })
+
     // Tooltips
     const tooltips = document.querySelectorAll('.tooltip-general')
     tooltips.forEach(t => {

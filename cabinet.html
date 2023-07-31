@@ -122,7 +122,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="premiumAdForm" action="">
-                        <div class="premium-ad__feature">
+                        <div class="modal-body__option">
                             <span>XİDMƏTİN MÜDDƏTİ</span>
                             <div class="form-check-wrapper">
                                 <div class="form-check">
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="premium-ad__feature">
+                        <div class="modal-body__option">
                             <span>ÖDƏNİŞ ÜSULU</span>
                             <div class="form-check-wrapper">
                                 <div class="form-check">
@@ -149,6 +149,43 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="paymentType" id="paymentType2" checked>
                                     <label class="form-check-label" for="paymentType2"> Portmanat </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn__general btn__general--contained btn__general--blue btn__general--large btn__submit">Ödə</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-increase-balance" id="increaseBalanceModal" tabindex="-1" aria-labelledby="increaseBalanceModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title">Balansı artırın</span>
+                    <p>Artırılacaq məbləği daxil edin və ya seçin: </p>
+                </div>
+                <div class="modal-body">
+                    <form id="increaseBalanceForm" action="">
+                        <div class="payment-options">
+                            <div class="payment-option selected" data-value="10"> 10 AZN </div>
+                            <div class="payment-option" data-value="20"> 20 AZN </div>
+                            <div class="payment-option" data-value="50"> 50 AZN </div>
+                            <div class="payment-option payment-option--custom input-group">
+                                <input type="number" id="payAmount" name="payAmount" class="form-control form-control-price" value="" min="0" max="1000000" placeholder="Məbləğ" pattern="^\d*(\.\d{0,2})?$" />
+                                <span class="input-group-text">AZN</span>
+                            </div>
+                        </div>
+                        <div class="modal-body__option">
+                            <span>ÖDƏNİŞ ÜSULU</span>
+                            <div class="form-check-wrapper">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="0" name="balancePaymentType" id="balancePaymentType1" checked>
+                                    <label class="form-check-label" for="balancePaymentType1"> Bank kartı </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="1" name="balancePaymentType" id="balancePaymentType2" checked>
+                                    <label class="form-check-label" for="balancePaymentType2"> Portmanat </label>
                                 </div>
                             </div>
                         </div>
@@ -406,7 +443,7 @@
         <section class="cabinet p-md pb-0">
             <div class="cabinet__header">
                 <div class="container">
-                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills" id="pills-tab-cabinent" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="btn__tab active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -436,19 +473,521 @@
             </div>
             <div class="cabinet__body p-md">
                 <div class="container">
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="tab-content" id="pills-tab-cabinent-content">
+                        <div class="tab-pane active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <div class="pills-home__cards">
-                                <div class="pills-home__card">
-                                    <div class="pills-home__card__header"> Şəxsi hesab </div>
-                                    <div class="pills-home__card__body"> Şəxsi hesab </div>
+                                <div class="row">
+                                    <div class="col-lg-4 d-flex">
+                                        <div class="pills-home__card primary">
+                                            <div class="pills-home__card__header"> Şəxsi hesab </div>
+                                            <div class="pills-home__card__body">
+                                                <span class="pills-home__card__content">0,00 AZN</span>
+                                                <button class="btn btn__general btn__general--outlined btn__general--white btn__general--stroke" data-bs-toggle="modal" data-bs-target="#increaseBalanceModal">
+                                                    <span>Balansı artırın</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 d-flex">
+                                        <div class="pills-home__card secondary">
+                                            <div class="pills-home__card__header"> Elanlar </div>
+                                            <div class="pills-home__card__body">
+                                                <span class="pills-home__card__content">27 elan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 d-flex">
+                                        <div class="pills-home__card">
+                                            <div class="pills-home__card__header"> Şəxsi hesab </div>
+                                            <div class="pills-home__card__body">
+                                                <span class="pills-home__card__content">0,00 AZN</span>
+                                                <button class="btn btn__general btn__general--outlined btn__general--white btn__general--stroke" data-bs-toggle="modal" data-bs-target="#increaseBalanceModal">
+                                                    <span>Balansı artırın</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="pills-home__logs">
+                                <div class="pills-home__logs__header">
+                                    <span>Bütün əməliyyatlar</span>
+                                </div>
+                                <div class="pills-home__logs__body">
+                                    <div class="pills-home__logs__empty p-md">
+                                        <span>Hal hazırda sizin əməliyyatınız yoxdur</span>
+                                        <p>Burda sizin ödəniş tarixçəniz göstəriləcək</p>
+                                    </div>
+                                    <div class="pills-home__logs__table table-responsive-lg">
+                                        <table class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Balansı artımı</th>
+                                                    <th scope="col">Ödəniş üsulu</th>
+                                                    <th scope="col">Statusu</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>10 AZN</td>
+                                                    <td>Bank kartı</td>
+                                                    <td>Uğurlu</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>50 AZN</td>
+                                                    <td>Portmanat</td>
+                                                    <td>Uğurlu</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>10 AZN</td>
+                                                    <td>Bank kartı</td>
+                                                    <td>Uğurlu</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>50 AZN</td>
+                                                    <td>Portmanat</td>
+                                                    <td>Uğurlu</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-ads" role="tabpanel" aria-labelledby="pills-ads-tab">2</div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">3</div>
+                        <div class="tab-pane" id="pills-ads" role="tabpanel" aria-labelledby="pills-ads-tab">
+                            <div class="pills-ads-header">
+                                <ul class="nav nav-pills" id="pills-tab-ads" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="btn__tab secondary active" id="pills-ads-all-tab" data-bs-toggle="pill" data-bs-target="#pills-ads-all" type="button" role="tab" aria-controls="pills-ads-all" aria-selected="true"> Bütün elanlar <span>(12)</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="btn__tab secondary" id="pills-ads-current-tab" data-bs-toggle="pill" data-bs-target="#pills-ads-current" type="button" role="tab" aria-controls="pills-ads-current" aria-selected="true"> Hal-hazırda saytda <span>(12)</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="btn__tab secondary" id="pills-ads-expired-tab" data-bs-toggle="pill" data-bs-target="#pills-ads-expired" type="button" role="tab" aria-controls="pills-ads-expired" aria-selected="true"> Müddəti başa çatmış <span>(12)</span>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="btn__tab secondary" id="pills-ads-pending-tab" data-bs-toggle="pill" data-bs-target="#pills-ads-pending" type="button" role="tab" aria-controls="pills-ads-pending" aria-selected="true"> Gözləmədə <span>(12)</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pills-ads-body p-md">
+                                <div class="tab-content" id="pills-tab-ads-content">
+                                    <div class="tab-pane active" id="pills-ads-all" role="tabpanel" aria-labelledby="pills-ads-all-tab">
+                                        <div class="row gy-3 gx-3">
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                            <div class="elan-card__labels">
+                                                                <div>
+                                                                    <span class="label label--discount">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M9 9H9.01M15 15H15.01M16 8L8 16M17.9012 4.99851C18.1071 5.49653 18.5024 5.8924 19.0001 6.09907L20.7452 6.82198C21.2433 7.02828 21.639 7.42399 21.8453 7.92206C22.0516 8.42012 22.0516 8.97974 21.8453 9.47781L21.1229 11.2218C20.9165 11.7201 20.9162 12.2803 21.1236 12.7783L21.8447 14.5218C21.9469 14.7685 21.9996 15.0329 21.9996 15.2999C21.9997 15.567 21.9471 15.8314 21.8449 16.0781C21.7427 16.3249 21.5929 16.549 21.4041 16.7378C21.2152 16.9266 20.991 17.0764 20.7443 17.1785L19.0004 17.9009C18.5023 18.1068 18.1065 18.5021 17.8998 18.9998L17.1769 20.745C16.9706 21.2431 16.575 21.6388 16.0769 21.8451C15.5789 22.0514 15.0193 22.0514 14.5212 21.8451L12.7773 21.1227C12.2792 20.9169 11.7198 20.9173 11.2221 21.1239L9.47689 21.8458C8.97912 22.0516 8.42001 22.0514 7.92237 21.8453C7.42473 21.6391 7.02925 21.2439 6.82281 20.7464L6.09972 19.0006C5.8938 18.5026 5.49854 18.1067 5.00085 17.9L3.25566 17.1771C2.75783 16.9709 2.36226 16.5754 2.15588 16.0777C1.94951 15.5799 1.94923 15.0205 2.1551 14.5225L2.87746 12.7786C3.08325 12.2805 3.08283 11.7211 2.8763 11.2233L2.15497 9.47678C2.0527 9.2301 2.00004 8.96568 2 8.69863C1.99996 8.43159 2.05253 8.16715 2.15472 7.92043C2.25691 7.67372 2.40671 7.44955 2.59557 7.26075C2.78442 7.07195 3.00862 6.92222 3.25537 6.8201L4.9993 6.09772C5.49687 5.89197 5.89248 5.4972 6.0993 5.00006L6.82218 3.25481C7.02848 2.75674 7.42418 2.36103 7.92222 2.15473C8.42027 1.94842 8.97987 1.94842 9.47792 2.15473L11.2218 2.87712C11.7199 3.08291 12.2793 3.08249 12.7771 2.87595L14.523 2.15585C15.021 1.94966 15.5804 1.9497 16.0784 2.15597C16.5763 2.36223 16.972 2.75783 17.1783 3.25576L17.9014 5.00153L17.9012 4.99851ZM9.5 9C9.5 9.27614 9.27614 9.5 9 9.5C8.72386 9.5 8.5 9.27614 8.5 9C8.5 8.72386 8.72386 8.5 9 8.5C9.27614 8.5 9.5 8.72386 9.5 9ZM15.5 15C15.5 15.2761 15.2761 15.5 15 15.5C14.7239 15.5 14.5 15.2761 14.5 15C14.5 14.7239 14.7239 14.5 15 14.5C15.2761 14.5 15.5 14.7239 15.5 15Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span class="label label--barter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M2 10C2 10 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C19.6092 6.88131 20.4133 8.40072 20.7762 10M2 10V4M2 10H8M22 14C22 14 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C4.39076 17.1187 3.58669 15.5993 3.22383 14M22 14V20M22 14H16" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="label label--premium">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M21.6681 15.5241C15.5312 15.5241 9.44032 15.5241 3.30333 15.5241C3.21104 15.0166 3.1649 14.5552 3.07261 14.0476C2.8419 12.6633 2.65733 11.279 2.42662 9.89474C2.28819 9.06417 2.14976 8.18745 2.01133 7.31074C1.96519 6.98774 2.05747 6.71089 2.33433 6.57246C2.65733 6.38789 2.93419 6.43403 3.1649 6.66474C4.4569 7.63374 5.70275 8.60274 6.99475 9.52559C7.13318 9.66402 7.36389 9.75631 7.54846 9.75631C7.96375 9.80245 8.2406 9.61788 8.47132 9.29488C9.34803 7.95674 10.2247 6.66474 11.1015 5.3266C11.3322 5.0036 11.5167 4.72675 11.7013 4.44989C12.1166 3.85004 12.8549 3.85004 13.2702 4.44989C14.3314 6.06489 15.3927 7.63374 16.454 9.24874C16.8693 9.84859 17.423 9.94088 17.9767 9.52559C19.2226 8.60274 20.5146 7.63374 21.7604 6.71089C22.2219 6.34174 22.8217 6.52631 22.914 7.08003C22.9601 7.2646 22.914 7.44917 22.8679 7.67988C22.591 9.61788 22.268 11.5559 21.9911 13.4939C21.8989 14.0937 21.8066 14.832 21.6681 15.5241Z" fill="#ACB1C4" />
+                                                                            <path d="M3.30333 16.9084C9.44031 16.9084 15.5312 16.9084 21.6681 16.9084C21.6681 16.9546 21.6681 17.0007 21.6681 17.093C21.6681 17.739 21.6681 18.3389 21.6681 18.9849C21.6681 19.5847 21.2529 20 20.653 20C15.2082 19.9539 9.76331 19.9539 4.31847 19.9539C3.71861 19.9539 3.30333 19.5386 3.30333 18.9387C3.30333 18.2927 3.30333 17.6006 3.30333 16.9084Z" fill="#ACB1C4" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                            <button class="btn btn__general btn__general--contained btn__general--blue btn__icon--fill">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
+                                                                    <path d="M17.3095 10.1421C11.9085 10.1421 6.54805 10.1421 1.14703 10.1421C1.06581 9.69543 1.0252 9.28934 0.943982 8.84264C0.740936 7.62437 0.5785 6.40609 0.375454 5.18782C0.253627 4.45685 0.131799 3.68528 0.00997171 2.91371C-0.0306375 2.62944 0.0505809 2.38579 0.294236 2.26396C0.5785 2.10152 0.822155 2.14213 1.0252 2.34518C2.16226 3.19797 3.2587 4.05076 4.39576 4.86295C4.51759 4.98477 4.72063 5.06599 4.88307 5.06599C5.24855 5.1066 5.49221 4.94416 5.69525 4.6599C6.46683 3.48223 7.2384 2.34518 8.00998 1.16751C8.21302 0.883249 8.37546 0.639594 8.53789 0.395939C8.90338 -0.13198 9.55312 -0.13198 9.91861 0.395939C10.8526 1.81726 11.7866 3.19797 12.7206 4.61929C13.0861 5.14721 13.5734 5.22843 14.0607 4.86295C15.1572 4.05076 16.2942 3.19797 17.3907 2.38579C17.7968 2.06091 18.3247 2.22335 18.4059 2.71066C18.4465 2.8731 18.4059 3.03553 18.3653 3.23858C18.1217 4.94416 17.8374 6.64975 17.5937 8.35533C17.5125 8.88325 17.4313 9.533 17.3095 10.1421Z" fill="white" />
+                                                                    <path d="M1.14703 11.2792C6.54805 11.2792 11.9085 11.2792 17.3095 11.2792C17.3095 11.3198 17.3095 11.3604 17.3095 11.4416C17.3095 12.0102 17.3095 12.5381 17.3095 13.1066C17.3095 13.6345 16.944 14 16.4161 14C11.6242 13.9594 6.83231 13.9594 2.04043 13.9594C1.51251 13.9594 1.14703 13.5939 1.14703 13.066C1.14703 12.4975 1.14703 11.8883 1.14703 11.2792Z" fill="white" />
+                                                                </svg>
+                                                                <span>Premium et</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn__icon btn__fav is-fav">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                            <div class="elan-card__labels">
+                                                                <div>
+                                                                    <span class="label label--discount">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M9 9H9.01M15 15H15.01M16 8L8 16M17.9012 4.99851C18.1071 5.49653 18.5024 5.8924 19.0001 6.09907L20.7452 6.82198C21.2433 7.02828 21.639 7.42399 21.8453 7.92206C22.0516 8.42012 22.0516 8.97974 21.8453 9.47781L21.1229 11.2218C20.9165 11.7201 20.9162 12.2803 21.1236 12.7783L21.8447 14.5218C21.9469 14.7685 21.9996 15.0329 21.9996 15.2999C21.9997 15.567 21.9471 15.8314 21.8449 16.0781C21.7427 16.3249 21.5929 16.549 21.4041 16.7378C21.2152 16.9266 20.991 17.0764 20.7443 17.1785L19.0004 17.9009C18.5023 18.1068 18.1065 18.5021 17.8998 18.9998L17.1769 20.745C16.9706 21.2431 16.575 21.6388 16.0769 21.8451C15.5789 22.0514 15.0193 22.0514 14.5212 21.8451L12.7773 21.1227C12.2792 20.9169 11.7198 20.9173 11.2221 21.1239L9.47689 21.8458C8.97912 22.0516 8.42001 22.0514 7.92237 21.8453C7.42473 21.6391 7.02925 21.2439 6.82281 20.7464L6.09972 19.0006C5.8938 18.5026 5.49854 18.1067 5.00085 17.9L3.25566 17.1771C2.75783 16.9709 2.36226 16.5754 2.15588 16.0777C1.94951 15.5799 1.94923 15.0205 2.1551 14.5225L2.87746 12.7786C3.08325 12.2805 3.08283 11.7211 2.8763 11.2233L2.15497 9.47678C2.0527 9.2301 2.00004 8.96568 2 8.69863C1.99996 8.43159 2.05253 8.16715 2.15472 7.92043C2.25691 7.67372 2.40671 7.44955 2.59557 7.26075C2.78442 7.07195 3.00862 6.92222 3.25537 6.8201L4.9993 6.09772C5.49687 5.89197 5.89248 5.4972 6.0993 5.00006L6.82218 3.25481C7.02848 2.75674 7.42418 2.36103 7.92222 2.15473C8.42027 1.94842 8.97987 1.94842 9.47792 2.15473L11.2218 2.87712C11.7199 3.08291 12.2793 3.08249 12.7771 2.87595L14.523 2.15585C15.021 1.94966 15.5804 1.9497 16.0784 2.15597C16.5763 2.36223 16.972 2.75783 17.1783 3.25576L17.9014 5.00153L17.9012 4.99851ZM9.5 9C9.5 9.27614 9.27614 9.5 9 9.5C8.72386 9.5 8.5 9.27614 8.5 9C8.5 8.72386 8.72386 8.5 9 8.5C9.27614 8.5 9.5 8.72386 9.5 9ZM15.5 15C15.5 15.2761 15.2761 15.5 15 15.5C14.7239 15.5 14.5 15.2761 14.5 15C14.5 14.7239 14.7239 14.5 15 14.5C15.2761 14.5 15.5 14.7239 15.5 15Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span class="label label--barter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M2 10C2 10 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C19.6092 6.88131 20.4133 8.40072 20.7762 10M2 10V4M2 10H8M22 14C22 14 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C4.39076 17.1187 3.58669 15.5993 3.22383 14M22 14V20M22 14H16" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="label label--premium">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M21.6681 15.5241C15.5312 15.5241 9.44032 15.5241 3.30333 15.5241C3.21104 15.0166 3.1649 14.5552 3.07261 14.0476C2.8419 12.6633 2.65733 11.279 2.42662 9.89474C2.28819 9.06417 2.14976 8.18745 2.01133 7.31074C1.96519 6.98774 2.05747 6.71089 2.33433 6.57246C2.65733 6.38789 2.93419 6.43403 3.1649 6.66474C4.4569 7.63374 5.70275 8.60274 6.99475 9.52559C7.13318 9.66402 7.36389 9.75631 7.54846 9.75631C7.96375 9.80245 8.2406 9.61788 8.47132 9.29488C9.34803 7.95674 10.2247 6.66474 11.1015 5.3266C11.3322 5.0036 11.5167 4.72675 11.7013 4.44989C12.1166 3.85004 12.8549 3.85004 13.2702 4.44989C14.3314 6.06489 15.3927 7.63374 16.454 9.24874C16.8693 9.84859 17.423 9.94088 17.9767 9.52559C19.2226 8.60274 20.5146 7.63374 21.7604 6.71089C22.2219 6.34174 22.8217 6.52631 22.914 7.08003C22.9601 7.2646 22.914 7.44917 22.8679 7.67988C22.591 9.61788 22.268 11.5559 21.9911 13.4939C21.8989 14.0937 21.8066 14.832 21.6681 15.5241Z" fill="#ACB1C4" />
+                                                                            <path d="M3.30333 16.9084C9.44031 16.9084 15.5312 16.9084 21.6681 16.9084C21.6681 16.9546 21.6681 17.0007 21.6681 17.093C21.6681 17.739 21.6681 18.3389 21.6681 18.9849C21.6681 19.5847 21.2529 20 20.653 20C15.2082 19.9539 9.76331 19.9539 4.31847 19.9539C3.71861 19.9539 3.30333 19.5386 3.30333 18.9387C3.30333 18.2927 3.30333 17.6006 3.30333 16.9084Z" fill="#ACB1C4" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                            <button class="btn btn__general btn__general--outlined btn__general--blue">
+                                                                <span>Yenidən aktiv et</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn__icon btn__fav is-fav">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                            <div class="elan-card__labels">
+                                                                <div>
+                                                                    <span class="label label--discount">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M9 9H9.01M15 15H15.01M16 8L8 16M17.9012 4.99851C18.1071 5.49653 18.5024 5.8924 19.0001 6.09907L20.7452 6.82198C21.2433 7.02828 21.639 7.42399 21.8453 7.92206C22.0516 8.42012 22.0516 8.97974 21.8453 9.47781L21.1229 11.2218C20.9165 11.7201 20.9162 12.2803 21.1236 12.7783L21.8447 14.5218C21.9469 14.7685 21.9996 15.0329 21.9996 15.2999C21.9997 15.567 21.9471 15.8314 21.8449 16.0781C21.7427 16.3249 21.5929 16.549 21.4041 16.7378C21.2152 16.9266 20.991 17.0764 20.7443 17.1785L19.0004 17.9009C18.5023 18.1068 18.1065 18.5021 17.8998 18.9998L17.1769 20.745C16.9706 21.2431 16.575 21.6388 16.0769 21.8451C15.5789 22.0514 15.0193 22.0514 14.5212 21.8451L12.7773 21.1227C12.2792 20.9169 11.7198 20.9173 11.2221 21.1239L9.47689 21.8458C8.97912 22.0516 8.42001 22.0514 7.92237 21.8453C7.42473 21.6391 7.02925 21.2439 6.82281 20.7464L6.09972 19.0006C5.8938 18.5026 5.49854 18.1067 5.00085 17.9L3.25566 17.1771C2.75783 16.9709 2.36226 16.5754 2.15588 16.0777C1.94951 15.5799 1.94923 15.0205 2.1551 14.5225L2.87746 12.7786C3.08325 12.2805 3.08283 11.7211 2.8763 11.2233L2.15497 9.47678C2.0527 9.2301 2.00004 8.96568 2 8.69863C1.99996 8.43159 2.05253 8.16715 2.15472 7.92043C2.25691 7.67372 2.40671 7.44955 2.59557 7.26075C2.78442 7.07195 3.00862 6.92222 3.25537 6.8201L4.9993 6.09772C5.49687 5.89197 5.89248 5.4972 6.0993 5.00006L6.82218 3.25481C7.02848 2.75674 7.42418 2.36103 7.92222 2.15473C8.42027 1.94842 8.97987 1.94842 9.47792 2.15473L11.2218 2.87712C11.7199 3.08291 12.2793 3.08249 12.7771 2.87595L14.523 2.15585C15.021 1.94966 15.5804 1.9497 16.0784 2.15597C16.5763 2.36223 16.972 2.75783 17.1783 3.25576L17.9014 5.00153L17.9012 4.99851ZM9.5 9C9.5 9.27614 9.27614 9.5 9 9.5C8.72386 9.5 8.5 9.27614 8.5 9C8.5 8.72386 8.72386 8.5 9 8.5C9.27614 8.5 9.5 8.72386 9.5 9ZM15.5 15C15.5 15.2761 15.2761 15.5 15 15.5C14.7239 15.5 14.5 15.2761 14.5 15C14.5 14.7239 14.7239 14.5 15 14.5C15.2761 14.5 15.5 14.7239 15.5 15Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span class="label label--barter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M2 10C2 10 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C19.6092 6.88131 20.4133 8.40072 20.7762 10M2 10V4M2 10H8M22 14C22 14 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C4.39076 17.1187 3.58669 15.5993 3.22383 14M22 14V20M22 14H16" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="label label--premium">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M21.6681 15.5241C15.5312 15.5241 9.44032 15.5241 3.30333 15.5241C3.21104 15.0166 3.1649 14.5552 3.07261 14.0476C2.8419 12.6633 2.65733 11.279 2.42662 9.89474C2.28819 9.06417 2.14976 8.18745 2.01133 7.31074C1.96519 6.98774 2.05747 6.71089 2.33433 6.57246C2.65733 6.38789 2.93419 6.43403 3.1649 6.66474C4.4569 7.63374 5.70275 8.60274 6.99475 9.52559C7.13318 9.66402 7.36389 9.75631 7.54846 9.75631C7.96375 9.80245 8.2406 9.61788 8.47132 9.29488C9.34803 7.95674 10.2247 6.66474 11.1015 5.3266C11.3322 5.0036 11.5167 4.72675 11.7013 4.44989C12.1166 3.85004 12.8549 3.85004 13.2702 4.44989C14.3314 6.06489 15.3927 7.63374 16.454 9.24874C16.8693 9.84859 17.423 9.94088 17.9767 9.52559C19.2226 8.60274 20.5146 7.63374 21.7604 6.71089C22.2219 6.34174 22.8217 6.52631 22.914 7.08003C22.9601 7.2646 22.914 7.44917 22.8679 7.67988C22.591 9.61788 22.268 11.5559 21.9911 13.4939C21.8989 14.0937 21.8066 14.832 21.6681 15.5241Z" fill="#ACB1C4" />
+                                                                            <path d="M3.30333 16.9084C9.44031 16.9084 15.5312 16.9084 21.6681 16.9084C21.6681 16.9546 21.6681 17.0007 21.6681 17.093C21.6681 17.739 21.6681 18.3389 21.6681 18.9849C21.6681 19.5847 21.2529 20 20.653 20C15.2082 19.9539 9.76331 19.9539 4.31847 19.9539C3.71861 19.9539 3.30333 19.5386 3.30333 18.9387C3.30333 18.2927 3.30333 17.6006 3.30333 16.9084Z" fill="#ACB1C4" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn__icon btn__fav is-fav">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="pills-ads-current" role="tabpanel" aria-labelledby="pills-ads-current-tab">
+                                        <div class="row gy-3 gx-3">
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                            <div class="elan-card__labels">
+                                                                <div>
+                                                                    <span class="label label--discount">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M9 9H9.01M15 15H15.01M16 8L8 16M17.9012 4.99851C18.1071 5.49653 18.5024 5.8924 19.0001 6.09907L20.7452 6.82198C21.2433 7.02828 21.639 7.42399 21.8453 7.92206C22.0516 8.42012 22.0516 8.97974 21.8453 9.47781L21.1229 11.2218C20.9165 11.7201 20.9162 12.2803 21.1236 12.7783L21.8447 14.5218C21.9469 14.7685 21.9996 15.0329 21.9996 15.2999C21.9997 15.567 21.9471 15.8314 21.8449 16.0781C21.7427 16.3249 21.5929 16.549 21.4041 16.7378C21.2152 16.9266 20.991 17.0764 20.7443 17.1785L19.0004 17.9009C18.5023 18.1068 18.1065 18.5021 17.8998 18.9998L17.1769 20.745C16.9706 21.2431 16.575 21.6388 16.0769 21.8451C15.5789 22.0514 15.0193 22.0514 14.5212 21.8451L12.7773 21.1227C12.2792 20.9169 11.7198 20.9173 11.2221 21.1239L9.47689 21.8458C8.97912 22.0516 8.42001 22.0514 7.92237 21.8453C7.42473 21.6391 7.02925 21.2439 6.82281 20.7464L6.09972 19.0006C5.8938 18.5026 5.49854 18.1067 5.00085 17.9L3.25566 17.1771C2.75783 16.9709 2.36226 16.5754 2.15588 16.0777C1.94951 15.5799 1.94923 15.0205 2.1551 14.5225L2.87746 12.7786C3.08325 12.2805 3.08283 11.7211 2.8763 11.2233L2.15497 9.47678C2.0527 9.2301 2.00004 8.96568 2 8.69863C1.99996 8.43159 2.05253 8.16715 2.15472 7.92043C2.25691 7.67372 2.40671 7.44955 2.59557 7.26075C2.78442 7.07195 3.00862 6.92222 3.25537 6.8201L4.9993 6.09772C5.49687 5.89197 5.89248 5.4972 6.0993 5.00006L6.82218 3.25481C7.02848 2.75674 7.42418 2.36103 7.92222 2.15473C8.42027 1.94842 8.97987 1.94842 9.47792 2.15473L11.2218 2.87712C11.7199 3.08291 12.2793 3.08249 12.7771 2.87595L14.523 2.15585C15.021 1.94966 15.5804 1.9497 16.0784 2.15597C16.5763 2.36223 16.972 2.75783 17.1783 3.25576L17.9014 5.00153L17.9012 4.99851ZM9.5 9C9.5 9.27614 9.27614 9.5 9 9.5C8.72386 9.5 8.5 9.27614 8.5 9C8.5 8.72386 8.72386 8.5 9 8.5C9.27614 8.5 9.5 8.72386 9.5 9ZM15.5 15C15.5 15.2761 15.2761 15.5 15 15.5C14.7239 15.5 14.5 15.2761 14.5 15C14.5 14.7239 14.7239 14.5 15 14.5C15.2761 14.5 15.5 14.7239 15.5 15Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span class="label label--barter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M2 10C2 10 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C19.6092 6.88131 20.4133 8.40072 20.7762 10M2 10V4M2 10H8M22 14C22 14 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C4.39076 17.1187 3.58669 15.5993 3.22383 14M22 14V20M22 14H16" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="label label--premium">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M21.6681 15.5241C15.5312 15.5241 9.44032 15.5241 3.30333 15.5241C3.21104 15.0166 3.1649 14.5552 3.07261 14.0476C2.8419 12.6633 2.65733 11.279 2.42662 9.89474C2.28819 9.06417 2.14976 8.18745 2.01133 7.31074C1.96519 6.98774 2.05747 6.71089 2.33433 6.57246C2.65733 6.38789 2.93419 6.43403 3.1649 6.66474C4.4569 7.63374 5.70275 8.60274 6.99475 9.52559C7.13318 9.66402 7.36389 9.75631 7.54846 9.75631C7.96375 9.80245 8.2406 9.61788 8.47132 9.29488C9.34803 7.95674 10.2247 6.66474 11.1015 5.3266C11.3322 5.0036 11.5167 4.72675 11.7013 4.44989C12.1166 3.85004 12.8549 3.85004 13.2702 4.44989C14.3314 6.06489 15.3927 7.63374 16.454 9.24874C16.8693 9.84859 17.423 9.94088 17.9767 9.52559C19.2226 8.60274 20.5146 7.63374 21.7604 6.71089C22.2219 6.34174 22.8217 6.52631 22.914 7.08003C22.9601 7.2646 22.914 7.44917 22.8679 7.67988C22.591 9.61788 22.268 11.5559 21.9911 13.4939C21.8989 14.0937 21.8066 14.832 21.6681 15.5241Z" fill="#ACB1C4" />
+                                                                            <path d="M3.30333 16.9084C9.44031 16.9084 15.5312 16.9084 21.6681 16.9084C21.6681 16.9546 21.6681 17.0007 21.6681 17.093C21.6681 17.739 21.6681 18.3389 21.6681 18.9849C21.6681 19.5847 21.2529 20 20.653 20C15.2082 19.9539 9.76331 19.9539 4.31847 19.9539C3.71861 19.9539 3.30333 19.5386 3.30333 18.9387C3.30333 18.2927 3.30333 17.6006 3.30333 16.9084Z" fill="#ACB1C4" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                            <button class="btn btn__general btn__general--contained btn__general--blue btn__icon--fill">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="14" viewBox="0 0 19 14" fill="none">
+                                                                    <path d="M17.3095 10.1421C11.9085 10.1421 6.54805 10.1421 1.14703 10.1421C1.06581 9.69543 1.0252 9.28934 0.943982 8.84264C0.740936 7.62437 0.5785 6.40609 0.375454 5.18782C0.253627 4.45685 0.131799 3.68528 0.00997171 2.91371C-0.0306375 2.62944 0.0505809 2.38579 0.294236 2.26396C0.5785 2.10152 0.822155 2.14213 1.0252 2.34518C2.16226 3.19797 3.2587 4.05076 4.39576 4.86295C4.51759 4.98477 4.72063 5.06599 4.88307 5.06599C5.24855 5.1066 5.49221 4.94416 5.69525 4.6599C6.46683 3.48223 7.2384 2.34518 8.00998 1.16751C8.21302 0.883249 8.37546 0.639594 8.53789 0.395939C8.90338 -0.13198 9.55312 -0.13198 9.91861 0.395939C10.8526 1.81726 11.7866 3.19797 12.7206 4.61929C13.0861 5.14721 13.5734 5.22843 14.0607 4.86295C15.1572 4.05076 16.2942 3.19797 17.3907 2.38579C17.7968 2.06091 18.3247 2.22335 18.4059 2.71066C18.4465 2.8731 18.4059 3.03553 18.3653 3.23858C18.1217 4.94416 17.8374 6.64975 17.5937 8.35533C17.5125 8.88325 17.4313 9.533 17.3095 10.1421Z" fill="white" />
+                                                                    <path d="M1.14703 11.2792C6.54805 11.2792 11.9085 11.2792 17.3095 11.2792C17.3095 11.3198 17.3095 11.3604 17.3095 11.4416C17.3095 12.0102 17.3095 12.5381 17.3095 13.1066C17.3095 13.6345 16.944 14 16.4161 14C11.6242 13.9594 6.83231 13.9594 2.04043 13.9594C1.51251 13.9594 1.14703 13.5939 1.14703 13.066C1.14703 12.4975 1.14703 11.8883 1.14703 11.2792Z" fill="white" />
+                                                                </svg>
+                                                                <span>Premium et</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn__icon btn__fav is-fav">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                            <div class="elan-card__labels">
+                                                                <div>
+                                                                    <span class="label label--discount">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M9 9H9.01M15 15H15.01M16 8L8 16M17.9012 4.99851C18.1071 5.49653 18.5024 5.8924 19.0001 6.09907L20.7452 6.82198C21.2433 7.02828 21.639 7.42399 21.8453 7.92206C22.0516 8.42012 22.0516 8.97974 21.8453 9.47781L21.1229 11.2218C20.9165 11.7201 20.9162 12.2803 21.1236 12.7783L21.8447 14.5218C21.9469 14.7685 21.9996 15.0329 21.9996 15.2999C21.9997 15.567 21.9471 15.8314 21.8449 16.0781C21.7427 16.3249 21.5929 16.549 21.4041 16.7378C21.2152 16.9266 20.991 17.0764 20.7443 17.1785L19.0004 17.9009C18.5023 18.1068 18.1065 18.5021 17.8998 18.9998L17.1769 20.745C16.9706 21.2431 16.575 21.6388 16.0769 21.8451C15.5789 22.0514 15.0193 22.0514 14.5212 21.8451L12.7773 21.1227C12.2792 20.9169 11.7198 20.9173 11.2221 21.1239L9.47689 21.8458C8.97912 22.0516 8.42001 22.0514 7.92237 21.8453C7.42473 21.6391 7.02925 21.2439 6.82281 20.7464L6.09972 19.0006C5.8938 18.5026 5.49854 18.1067 5.00085 17.9L3.25566 17.1771C2.75783 16.9709 2.36226 16.5754 2.15588 16.0777C1.94951 15.5799 1.94923 15.0205 2.1551 14.5225L2.87746 12.7786C3.08325 12.2805 3.08283 11.7211 2.8763 11.2233L2.15497 9.47678C2.0527 9.2301 2.00004 8.96568 2 8.69863C1.99996 8.43159 2.05253 8.16715 2.15472 7.92043C2.25691 7.67372 2.40671 7.44955 2.59557 7.26075C2.78442 7.07195 3.00862 6.92222 3.25537 6.8201L4.9993 6.09772C5.49687 5.89197 5.89248 5.4972 6.0993 5.00006L6.82218 3.25481C7.02848 2.75674 7.42418 2.36103 7.92222 2.15473C8.42027 1.94842 8.97987 1.94842 9.47792 2.15473L11.2218 2.87712C11.7199 3.08291 12.2793 3.08249 12.7771 2.87595L14.523 2.15585C15.021 1.94966 15.5804 1.9497 16.0784 2.15597C16.5763 2.36223 16.972 2.75783 17.1783 3.25576L17.9014 5.00153L17.9012 4.99851ZM9.5 9C9.5 9.27614 9.27614 9.5 9 9.5C8.72386 9.5 8.5 9.27614 8.5 9C8.5 8.72386 8.72386 8.5 9 8.5C9.27614 8.5 9.5 8.72386 9.5 9ZM15.5 15C15.5 15.2761 15.2761 15.5 15 15.5C14.7239 15.5 14.5 15.2761 14.5 15C14.5 14.7239 14.7239 14.5 15 14.5C15.2761 14.5 15.5 14.7239 15.5 15Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span class="label label--barter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M2 10C2 10 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C19.6092 6.88131 20.4133 8.40072 20.7762 10M2 10V4M2 10H8M22 14C22 14 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C4.39076 17.1187 3.58669 15.5993 3.22383 14M22 14V20M22 14H16" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="label label--premium">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M21.6681 15.5241C15.5312 15.5241 9.44032 15.5241 3.30333 15.5241C3.21104 15.0166 3.1649 14.5552 3.07261 14.0476C2.8419 12.6633 2.65733 11.279 2.42662 9.89474C2.28819 9.06417 2.14976 8.18745 2.01133 7.31074C1.96519 6.98774 2.05747 6.71089 2.33433 6.57246C2.65733 6.38789 2.93419 6.43403 3.1649 6.66474C4.4569 7.63374 5.70275 8.60274 6.99475 9.52559C7.13318 9.66402 7.36389 9.75631 7.54846 9.75631C7.96375 9.80245 8.2406 9.61788 8.47132 9.29488C9.34803 7.95674 10.2247 6.66474 11.1015 5.3266C11.3322 5.0036 11.5167 4.72675 11.7013 4.44989C12.1166 3.85004 12.8549 3.85004 13.2702 4.44989C14.3314 6.06489 15.3927 7.63374 16.454 9.24874C16.8693 9.84859 17.423 9.94088 17.9767 9.52559C19.2226 8.60274 20.5146 7.63374 21.7604 6.71089C22.2219 6.34174 22.8217 6.52631 22.914 7.08003C22.9601 7.2646 22.914 7.44917 22.8679 7.67988C22.591 9.61788 22.268 11.5559 21.9911 13.4939C21.8989 14.0937 21.8066 14.832 21.6681 15.5241Z" fill="#ACB1C4" />
+                                                                            <path d="M3.30333 16.9084C9.44031 16.9084 15.5312 16.9084 21.6681 16.9084C21.6681 16.9546 21.6681 17.0007 21.6681 17.093C21.6681 17.739 21.6681 18.3389 21.6681 18.9849C21.6681 19.5847 21.2529 20 20.653 20C15.2082 19.9539 9.76331 19.9539 4.31847 19.9539C3.71861 19.9539 3.30333 19.5386 3.30333 18.9387C3.30333 18.2927 3.30333 17.6006 3.30333 16.9084Z" fill="#ACB1C4" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn__icon btn__fav is-fav">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="pills-ads-expired" role="tabpanel" aria-labelledby="pills-ads-expired-tab">
+                                        <div class="row gy-3 gx-3">
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                            <div class="elan-card__labels">
+                                                                <div>
+                                                                    <span class="label label--discount">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M9 9H9.01M15 15H15.01M16 8L8 16M17.9012 4.99851C18.1071 5.49653 18.5024 5.8924 19.0001 6.09907L20.7452 6.82198C21.2433 7.02828 21.639 7.42399 21.8453 7.92206C22.0516 8.42012 22.0516 8.97974 21.8453 9.47781L21.1229 11.2218C20.9165 11.7201 20.9162 12.2803 21.1236 12.7783L21.8447 14.5218C21.9469 14.7685 21.9996 15.0329 21.9996 15.2999C21.9997 15.567 21.9471 15.8314 21.8449 16.0781C21.7427 16.3249 21.5929 16.549 21.4041 16.7378C21.2152 16.9266 20.991 17.0764 20.7443 17.1785L19.0004 17.9009C18.5023 18.1068 18.1065 18.5021 17.8998 18.9998L17.1769 20.745C16.9706 21.2431 16.575 21.6388 16.0769 21.8451C15.5789 22.0514 15.0193 22.0514 14.5212 21.8451L12.7773 21.1227C12.2792 20.9169 11.7198 20.9173 11.2221 21.1239L9.47689 21.8458C8.97912 22.0516 8.42001 22.0514 7.92237 21.8453C7.42473 21.6391 7.02925 21.2439 6.82281 20.7464L6.09972 19.0006C5.8938 18.5026 5.49854 18.1067 5.00085 17.9L3.25566 17.1771C2.75783 16.9709 2.36226 16.5754 2.15588 16.0777C1.94951 15.5799 1.94923 15.0205 2.1551 14.5225L2.87746 12.7786C3.08325 12.2805 3.08283 11.7211 2.8763 11.2233L2.15497 9.47678C2.0527 9.2301 2.00004 8.96568 2 8.69863C1.99996 8.43159 2.05253 8.16715 2.15472 7.92043C2.25691 7.67372 2.40671 7.44955 2.59557 7.26075C2.78442 7.07195 3.00862 6.92222 3.25537 6.8201L4.9993 6.09772C5.49687 5.89197 5.89248 5.4972 6.0993 5.00006L6.82218 3.25481C7.02848 2.75674 7.42418 2.36103 7.92222 2.15473C8.42027 1.94842 8.97987 1.94842 9.47792 2.15473L11.2218 2.87712C11.7199 3.08291 12.2793 3.08249 12.7771 2.87595L14.523 2.15585C15.021 1.94966 15.5804 1.9497 16.0784 2.15597C16.5763 2.36223 16.972 2.75783 17.1783 3.25576L17.9014 5.00153L17.9012 4.99851ZM9.5 9C9.5 9.27614 9.27614 9.5 9 9.5C8.72386 9.5 8.5 9.27614 8.5 9C8.5 8.72386 8.72386 8.5 9 8.5C9.27614 8.5 9.5 8.72386 9.5 9ZM15.5 15C15.5 15.2761 15.2761 15.5 15 15.5C14.7239 15.5 14.5 15.2761 14.5 15C14.5 14.7239 14.7239 14.5 15 14.5C15.2761 14.5 15.5 14.7239 15.5 15Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span class="label label--barter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M2 10C2 10 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C19.6092 6.88131 20.4133 8.40072 20.7762 10M2 10V4M2 10H8M22 14C22 14 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C4.39076 17.1187 3.58669 15.5993 3.22383 14M22 14V20M22 14H16" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="label label--premium">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M21.6681 15.5241C15.5312 15.5241 9.44032 15.5241 3.30333 15.5241C3.21104 15.0166 3.1649 14.5552 3.07261 14.0476C2.8419 12.6633 2.65733 11.279 2.42662 9.89474C2.28819 9.06417 2.14976 8.18745 2.01133 7.31074C1.96519 6.98774 2.05747 6.71089 2.33433 6.57246C2.65733 6.38789 2.93419 6.43403 3.1649 6.66474C4.4569 7.63374 5.70275 8.60274 6.99475 9.52559C7.13318 9.66402 7.36389 9.75631 7.54846 9.75631C7.96375 9.80245 8.2406 9.61788 8.47132 9.29488C9.34803 7.95674 10.2247 6.66474 11.1015 5.3266C11.3322 5.0036 11.5167 4.72675 11.7013 4.44989C12.1166 3.85004 12.8549 3.85004 13.2702 4.44989C14.3314 6.06489 15.3927 7.63374 16.454 9.24874C16.8693 9.84859 17.423 9.94088 17.9767 9.52559C19.2226 8.60274 20.5146 7.63374 21.7604 6.71089C22.2219 6.34174 22.8217 6.52631 22.914 7.08003C22.9601 7.2646 22.914 7.44917 22.8679 7.67988C22.591 9.61788 22.268 11.5559 21.9911 13.4939C21.8989 14.0937 21.8066 14.832 21.6681 15.5241Z" fill="#ACB1C4" />
+                                                                            <path d="M3.30333 16.9084C9.44031 16.9084 15.5312 16.9084 21.6681 16.9084C21.6681 16.9546 21.6681 17.0007 21.6681 17.093C21.6681 17.739 21.6681 18.3389 21.6681 18.9849C21.6681 19.5847 21.2529 20 20.653 20C15.2082 19.9539 9.76331 19.9539 4.31847 19.9539C3.71861 19.9539 3.30333 19.5386 3.30333 18.9387C3.30333 18.2927 3.30333 17.6006 3.30333 16.9084Z" fill="#ACB1C4" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                            <button class="btn btn__general btn__general--outlined btn__general--blue">
+                                                                <span>Yenidən aktiv et</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn__icon btn__fav is-fav">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                            <div class="elan-card__labels">
+                                                                <div>
+                                                                    <span class="label label--discount">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M9 9H9.01M15 15H15.01M16 8L8 16M17.9012 4.99851C18.1071 5.49653 18.5024 5.8924 19.0001 6.09907L20.7452 6.82198C21.2433 7.02828 21.639 7.42399 21.8453 7.92206C22.0516 8.42012 22.0516 8.97974 21.8453 9.47781L21.1229 11.2218C20.9165 11.7201 20.9162 12.2803 21.1236 12.7783L21.8447 14.5218C21.9469 14.7685 21.9996 15.0329 21.9996 15.2999C21.9997 15.567 21.9471 15.8314 21.8449 16.0781C21.7427 16.3249 21.5929 16.549 21.4041 16.7378C21.2152 16.9266 20.991 17.0764 20.7443 17.1785L19.0004 17.9009C18.5023 18.1068 18.1065 18.5021 17.8998 18.9998L17.1769 20.745C16.9706 21.2431 16.575 21.6388 16.0769 21.8451C15.5789 22.0514 15.0193 22.0514 14.5212 21.8451L12.7773 21.1227C12.2792 20.9169 11.7198 20.9173 11.2221 21.1239L9.47689 21.8458C8.97912 22.0516 8.42001 22.0514 7.92237 21.8453C7.42473 21.6391 7.02925 21.2439 6.82281 20.7464L6.09972 19.0006C5.8938 18.5026 5.49854 18.1067 5.00085 17.9L3.25566 17.1771C2.75783 16.9709 2.36226 16.5754 2.15588 16.0777C1.94951 15.5799 1.94923 15.0205 2.1551 14.5225L2.87746 12.7786C3.08325 12.2805 3.08283 11.7211 2.8763 11.2233L2.15497 9.47678C2.0527 9.2301 2.00004 8.96568 2 8.69863C1.99996 8.43159 2.05253 8.16715 2.15472 7.92043C2.25691 7.67372 2.40671 7.44955 2.59557 7.26075C2.78442 7.07195 3.00862 6.92222 3.25537 6.8201L4.9993 6.09772C5.49687 5.89197 5.89248 5.4972 6.0993 5.00006L6.82218 3.25481C7.02848 2.75674 7.42418 2.36103 7.92222 2.15473C8.42027 1.94842 8.97987 1.94842 9.47792 2.15473L11.2218 2.87712C11.7199 3.08291 12.2793 3.08249 12.7771 2.87595L14.523 2.15585C15.021 1.94966 15.5804 1.9497 16.0784 2.15597C16.5763 2.36223 16.972 2.75783 17.1783 3.25576L17.9014 5.00153L17.9012 4.99851ZM9.5 9C9.5 9.27614 9.27614 9.5 9 9.5C8.72386 9.5 8.5 9.27614 8.5 9C8.5 8.72386 8.72386 8.5 9 8.5C9.27614 8.5 9.5 8.72386 9.5 9ZM15.5 15C15.5 15.2761 15.2761 15.5 15 15.5C14.7239 15.5 14.5 15.2761 14.5 15C14.5 14.7239 14.7239 14.5 15 14.5C15.2761 14.5 15.5 14.7239 15.5 15Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span class="label label--barter">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                            <path d="M2 10C2 10 2.12132 9.15076 5.63604 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C19.6092 6.88131 20.4133 8.40072 20.7762 10M2 10V4M2 10H8M22 14C22 14 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63604 18.364C4.39076 17.1187 3.58669 15.5993 3.22383 14M22 14V20M22 14H16" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="label label--premium">
+                                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M21.6681 15.5241C15.5312 15.5241 9.44032 15.5241 3.30333 15.5241C3.21104 15.0166 3.1649 14.5552 3.07261 14.0476C2.8419 12.6633 2.65733 11.279 2.42662 9.89474C2.28819 9.06417 2.14976 8.18745 2.01133 7.31074C1.96519 6.98774 2.05747 6.71089 2.33433 6.57246C2.65733 6.38789 2.93419 6.43403 3.1649 6.66474C4.4569 7.63374 5.70275 8.60274 6.99475 9.52559C7.13318 9.66402 7.36389 9.75631 7.54846 9.75631C7.96375 9.80245 8.2406 9.61788 8.47132 9.29488C9.34803 7.95674 10.2247 6.66474 11.1015 5.3266C11.3322 5.0036 11.5167 4.72675 11.7013 4.44989C12.1166 3.85004 12.8549 3.85004 13.2702 4.44989C14.3314 6.06489 15.3927 7.63374 16.454 9.24874C16.8693 9.84859 17.423 9.94088 17.9767 9.52559C19.2226 8.60274 20.5146 7.63374 21.7604 6.71089C22.2219 6.34174 22.8217 6.52631 22.914 7.08003C22.9601 7.2646 22.914 7.44917 22.8679 7.67988C22.591 9.61788 22.268 11.5559 21.9911 13.4939C21.8989 14.0937 21.8066 14.832 21.6681 15.5241Z" fill="#ACB1C4" />
+                                                                            <path d="M3.30333 16.9084C9.44031 16.9084 15.5312 16.9084 21.6681 16.9084C21.6681 16.9546 21.6681 17.0007 21.6681 17.093C21.6681 17.739 21.6681 18.3389 21.6681 18.9849C21.6681 19.5847 21.2529 20 20.653 20C15.2082 19.9539 9.76331 19.9539 4.31847 19.9539C3.71861 19.9539 3.30333 19.5386 3.30333 18.9387C3.30333 18.2927 3.30333 17.6006 3.30333 16.9084Z" fill="#ACB1C4" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                            <button class="btn btn__general btn__general--outlined btn__general--blue">
+                                                                <span>Yenidən aktiv et</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn__icon btn__fav is-fav">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M20.84 4.60999C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.60999L12 5.66999L10.94 4.60999C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.60999C2.1283 5.64169 1.54871 7.04096 1.54871 8.49999C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.49999C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7563 5.72718 21.351 5.12075 20.84 4.60999V4.60999Z" stroke="#ACB1C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="pills-ads-pending" role="tabpanel" aria-labelledby="pills-ads-pending-tab">
+                                        <div class="row gy-3 gx-3">
+                                            <div class="col-lg-3 d-flex">
+                                                <div class="elan-card__wrapper">
+                                                    <div class="elan-card">
+                                                        <a href="post.html" class="elan-card__img">
+                                                            <img src="img/elan/ad-1.png" alt="">
+                                                        </a>
+                                                        <div class="elan-card__body">
+                                                            <div class="elan-card__price">
+                                                                <del>85₼</del>
+                                                                <span>2.990 AZN</span>
+                                                            </div>
+                                                            <span class="elan-card__discount">-40%</span>
+                                                            <span class="elan-card__name">Komputer HP</span>
+                                                            <div class="d-flex align-items-center justify-content-between">
+                                                                <span class="elan-card__date">Bakı, 8 iyun 2023</span>
+                                                                <a href="#" class="btn__text btn__text__underline btn__text">Düzəliş et</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, perferendis officiis maxime, voluptas doloremque hic dignissimos culpa, inventore minus accusamus minima impedit aliquam optio eius veniam ut consequatur. Labore, architecto. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum expedita doloremque deleniti quia voluptate, officia, esse quae rem corporis ipsam placeat cum? Dolor laborum ratione, cumque tenetur rerum culpa iusto! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo eum autem est itaque laboriosam! Quisquam nemo ea corrupti odio deleniti delectus, voluptatibus reprehenderit quibusdam sit. Similique quis sed reprehenderit nobis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt natus voluptas alias, veniam animi fugiat mollitia soluta earum vitae quidem asperiores reprehenderit vel aut officia totam maxime similique minima laborum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis minima dolorem obcaecati quis, adipisci incidunt ipsum nam, culpa, molestiae repellat quia delectus officiis odit vitae aperiam similique? Fugiat, nobis alias. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error maiores nemo possimus omnis fuga maxime. Fugiat inventore ab consectetur neque qui maiores eum facere! Atque maxime explicabo expedita laboriosam quo? </div>
                     </div>
                 </div>
             </div>
